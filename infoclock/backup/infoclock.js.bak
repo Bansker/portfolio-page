@@ -1,0 +1,82 @@
+setInterval(() => {
+  let hours           = document.getElementById("hours");
+  let minutes         = document.getElementById("minutes");
+  let seconds         = document.getElementById("seconds");
+  let msg             = document.getElementById("message");
+
+  let current_hour    = new Date().getHours();
+  let current_minute  = new Date().getMinutes();
+  let current_second  = new Date().getSeconds();
+  let current_phase   = "Phase of Day";
+  let h               = current_hour;
+
+  switch(true) {
+    case 3 < h && h < 11:
+      current_phase = "Guten Morgen";
+      break;
+
+    case 10 < h && h < 13:
+      current_phase = "En Guete!";
+      break;
+
+    case 12 < h && h < 17:
+      current_phase = "Guten Nachmittag";
+      break;
+
+    case 16 < h && h < 22:
+      current_phase = "Guten Abend";
+      break;
+    
+    default:
+    	current_phase = "Gute Nacht";
+  }
+
+  current_hour    = current_hour    < 10 ? "0" + current_hour   : current_hour;
+  current_minute  = current_minute  < 10 ? "0" + current_minute : current_minute;
+  current_second  = current_second  < 10 ? "0" + current_second : current_second;
+
+  hours.innerHTML   = current_hour;
+  minutes.innerHTML = current_minute;
+  seconds.innerHTML = current_second;
+  msg.innerHTML     = current_phase;
+}, 1000);
+
+
+/* Weather Data */
+const apiKey = "33f0702e3862c027c08f73cfdd4a0e0a";
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather";
+
+const locationInput 	= document.getElementById("location-input");
+const searchBtn				= document.getElementById("search-btn");
+const locationElem		= document.getElementById("location");
+const temperatureElem	= document.getElementById("temperature");
+const descriptionElem	= document.getElementById("description");
+
+searchBtn.addEventListener('click', () => {
+	const location = locationInput.value;
+	if(location) {
+		fetchWeather(location);
+	}
+});
+
+function fetchWeather(location) {
+	const url = `${apiUrl}?q=${location}&appid=${apiKey}&units=metric&lang=de`;
+
+	fetch(url)
+		.then(response => response.json())
+		.then(data => {
+			locationElem.innerHTML 		  = `Ort: ${data.name}`;
+			temperatureElem.textContent = `${Math.round(data.main.temp)}°C`;
+			descriptionElem.textContent = data.weather[0].description;
+		})
+		.catch(error => {
+			console.error('Error fetching weather data:', error);
+		})
+}
+
+
+
+
+
+
+
