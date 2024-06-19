@@ -8,4 +8,34 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border: 1px solid red;
+}
+
+
+
+.fx-container {
+  display: flex;
+}
+
+.fx-item {
+  flex: 1;
+}
+
+
+
+.l-wrapper{
+  height: 100vh;
+  flex-direction: column;
+}
+
+
+
+.l-header {
+  max-height: 50px;
+}
+
+
+
+.l-main {
+
 }

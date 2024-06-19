@@ -1,6 +1,6 @@
 const rn        = Math.floor(Math.random() * 3);
 const rps       = ['scissors', 'paper', 'rock'];
-const usrin     = prompt('Rock Paper or Scissors').trim().toLowerCase();
+// const usrin     = prompt('Rock Paper or Scissors').trim().toLowerCase();
 const rpsIndex  = rps.indexOf(usrin);
 
 
