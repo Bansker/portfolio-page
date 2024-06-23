@@ -34,12 +34,13 @@ body {
 .l-view-welcome {
   max-height: 100vh;
   background-color: black;
-  color: whitesmoke;
+  color: bisque;
 }
 
 .l-main-img > img{
   max-height: 100vh;
   width: auto;
+/*   mask: url(svg/blob.svg#star) center / contain no-repeat; */
 }
 
 .l-main-text {
