@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="./style.css">
+  <title>Projectpage</title>
+</head>
+<body>
+	<div class="flex-container l-wrapper">
+		<div class="flex-container flex-item l-head-foot">
+			<h1>Portfolio Projects</h1>
+		</div>
+
+		<div class="flex-container flex-item l-main">
+
+			<a href="./playground/playground.html">
+				<div class="flex-item l-card m-card">
+					Playground
+				</div>
+			</a>
+
+			<a href="./infoclock/infoclock.html">
+					<div class="flex-item l-card m-card">
+						INFO_CLOCK
+					</div>
+				</a>
+
+			<a href="./tic-tac-console/tic-tac-console.html">
+				<div class="flex-item l-card m-card">
+					Tic Tac Console
+				</div>
+			</a>
+			
+			<a href="./rock_paper_scissors/rps.html">
+				<div class="flex-item l-card m-card">
+					Rock Paper Scissors
+				</div>
+			</a>
+
+			<a href="#">
+				<div class="flex-item l-card m-card">
+					Placeholder
+				</div>
+			</a>
+
+			<a href="#">
+				<div class="flex-item l-card m-card">
+					Placeholder
+				</div>
+			</a>
+
+			<a href="#">
+				<div class="flex-item l-card m-card">
+					Placeholder
+				</div>
+			</a>
+
+			<a href="#">
+				<div class="flex-item l-card m-card">
+					Placeholder
+				</div>
+			</a>
+
+			<a href="#">
+				<div class="flex-item l-card m-card">
+					Placeholder
+				</div>
+			</a>
+
+			<a href="#">
+				<div class="flex-item l-card m-card">
+					Placeholder
+				</div>
+			</a>
+
+			<a href="#">
+				<div class="flex-item l-card m-card">
+					Placeholder
+				</div>
+			</a>
+
+			<a href="#">
+				<div class="flex-item l-card m-card">
+					Placeholder
+				</div>
+			</a>
+
+			<a href="#">
+				<div class="flex-item l-card m-card">
+					Placeholder
+				</div>
+			</a>
+
+			<a href="#">
+				<div class="flex-item l-card m-card">
+					Placeholder
+				</div>
+			</a>
+
+			<a href="#">
+				<div class="flex-item l-card m-card">
+					Placeholder
+				</div>
+			</a>
+			
+		</div>
+
+		<div class="flex-container flex-item l-head-foot m-footer">
+      ©2024 Yannick Jud
+    </div> <!-- footer -->
+
+		</div>
+	</div>
+</body>
+</html>
