@@ -63,3 +63,25 @@ body {
   background-color: cornflowerblue;
   min-height: 100vh;
 }
+
+.l-button-container {
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.l-button {
+  font-size: 20px;
+  background-color: black;
+  color: bisque;
+  width: 250px;
+  height: 60px;
+  border: none;
+  border-radius: 0.4rem;
+  outline: 3px dashed bisque;
+
+}
+
+.l-button:hover {
+  outline: 3px solid bisque;
+}
