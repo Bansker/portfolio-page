@@ -170,6 +170,10 @@ body {
   background: #fff;
 }
 
+.l-timeline ul li:nth-child(1) {
+  width: 0px;
+}
+
 .l-timeline ul li::after {
   content: '';
   position: absolute;
