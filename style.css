@@ -95,6 +95,7 @@ body {
 .l-header-text > h1 {
   margin-bottom: 20px;
   font-size: 55px;
+  
 }
 
 .l-header-text > p {
@@ -117,6 +118,11 @@ body {
   height: fit-content;
   padding: 40px 0px;
 }
+/* 
+.l-section-view h1 {
+  transform: rotate(-3deg);
+  translate: 100px;
+} */
 
 .m-section-one {
   background-color: cornflowerblue;
