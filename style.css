@@ -19,7 +19,7 @@ Vertical timeline guide: https://webdesign.tutsplus.com/building-a-vertical-time
 }
 
 body {
-  background-color: cornflowerblue;
+  /* background-color: cornflowerblue; */
 }
 
 
@@ -35,44 +35,70 @@ body {
   flex-direction: column;
 }
 
-.l-view-welcome {
+
+.m-top-slant {
+  clip-path: polygon(0 0,100% 0,100% 100%,0 calc(100% - 50px));
+}
+
+.m-bottom-slant {
+  clip-path: polygon(0 0,100% 50px,100% 100%,0 100%);
+  margin-top: -50px;
+}
+
+/*
+  HEADER
+  ------------------------------------
+*/
+
+.l-header {
   flex-wrap:wrap;
   flex-basis: 100vh;
   /* max-height: 100vh; */
   background-color: black;
   color: bisque;
-  mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50%/120px 100%;
+  /* mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50%/120px 100%; */
+  
 }
 
-.l-main-img {
-  justify-content: flex-end;
+
+
+.l-header-img {
+  justify-content: center;
+  align-items: center;
 }
 
-.l-main-img > img{
+.l-header-img > img{
+  --blur-radius: 150px;
+
   margin: 0;
   padding: 0;
-  max-height: 100vh;
+  max-height: 700px;
   /* flex-basis: 100vh; */
   width: auto;
   max-width: 100vw;
+/*   box-shadow:         0px 0px var(--blur-radius) 0px rgba(255,255,255,0.75);
+  -webkit-box-shadow: 0px 0px var(--blur-radius) 0px rgba(255,255,255,0.75);
+  -moz-box-shadow:    0px 0px var(--blur-radius) 0px rgba(255,255,255,0.75); */
+  filter: drop-shadow(0px 0px 40px #ffffff);
+
+
 /* mask: url(svg/blob.svg#star) center / contain no-repeat; */
 }
 
 
 
-
-
-.l-main-text {
+.l-header-text {
   flex-direction: column;
   padding: 50px;
 }
 
-.l-main-text > h1 {
+.l-header-text > h1 {
   margin-bottom: 20px;
   font-size: 55px;
+  
 }
 
-.l-main-text > p {
+.l-header-text > p {
   margin-bottom: 20px;
   font-size: 25px;
   line-height: 35px;
@@ -82,10 +108,21 @@ body {
 
 
 
+
+/*
+  MAIN PAGE CONTENT
+  ------------------------------------
+*/
+
 .l-section-view {
   height: fit-content;
   padding: 40px 0px;
 }
+/* 
+.l-section-view h1 {
+  transform: rotate(-3deg);
+  translate: 100px;
+} */
 
 .m-section-one {
   background-color: cornflowerblue;
@@ -93,6 +130,12 @@ body {
 }
 
 
+
+
+/*
+  BUTTONS
+  ------------------------------------
+*/
 .l-button-container {
   flex-wrap: wrap;
   justify-content: center;
@@ -119,6 +162,10 @@ body {
 }
 
 
+/*
+  TIMELINE
+  ------------------------------------
+*/
 
 .l-timeline ul li {
   list-style-type: none;
@@ -127,6 +174,10 @@ body {
   margin: 0 auto;
   padding-top: 50px;
   background: #fff;
+}
+
+.l-timeline ul li:nth-child(1) {
+  width: 0px;
 }
 
 .l-timeline ul li::after {
@@ -178,3 +229,9 @@ body {
   border-width: 8px 0 8px 16px;
   border-color: transparent transparent transparent #F45B69;
 }
+
+
+/*
+  FOOTER
+  ------------------------------------
+*/
