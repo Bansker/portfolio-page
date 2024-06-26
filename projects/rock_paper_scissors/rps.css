@@ -49,6 +49,7 @@
   width: fit-content;
   translate: 50px 100px;
   transform: rotate(-20deg);
+  transition: .2s;
 }
 
 .l-header p:hover {
@@ -88,14 +89,16 @@
   border-radius: 0.4rem;
   outline: 2px solid cornflowerblue;
 
-  transition: transform .2s;
+  transition-duration: 200ms;
+  transition-property: transform, background-color;
   z-index: 0;
 }
 
 .l-rps-card:hover {
-  cursor: pointer;
-  transform: scale(1.2);
-  z-index: 1;
+  cursor          : pointer;
+  transform       : scale(1.2);
+  background-color: cornflowerblue;
+  z-index         : 1;
 }
 
 
@@ -108,5 +111,8 @@
 
 
 .l-footer {
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
   max-height: 30px;
 }
