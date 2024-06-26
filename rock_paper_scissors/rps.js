@@ -1,37 +1,27 @@
-const cardRock = document.querySelector('#rock');
-const cardPaper = document.querySelector('#paper');
-const cardScissors = document.querySelector('#scissors');
-const gameCard = document.querySelectorAll('.l-rps-card');
 
-gameCard.forEach((card) => {
-  console.log(card.id);
+const gameCard      = document.querySelectorAll('.l-rps-card');
+const resultMsg     = document.querySelector('.l-game-result p');
+const rps           = ['scissors', 'paper', 'rock'];
 
-
+usr = gameCard.forEach((card) => {
   card.addEventListener('click', () => {
-    console.log(`${card.id}`);
+    const rn        = Math.floor(Math.random() * 3);
+    const rpsIndex  = rps.indexOf(card.id);
+    
+    console.log(`You chose ${card.id}\nComputer chose ${rps[rn]}`);
+    
+    if(rn == rpsIndex) {
+      resultMsg.textContent = `${card.id.toUpperCase()} vs. ${rps[rn].toUpperCase()}: Its a draw...`;
+  
+    } else if((rpsIndex == rn + 1 ) || (rn == rpsIndex + 2)) {
+      resultMsg.textContent = `${card.id.toUpperCase()} vs. ${rps[rn].toUpperCase()}: You Lost!`;
+      
+    } else {
+      resultMsg.textContent = `${card.id.toUpperCase()} vs. ${rps[rn].toUpperCase()}: You Won!`;
+    }
   });
-
-
 });
 
 
-/* 
-const rn        = Math.floor(Math.random() * 3);
-const rps       = ['scissors', 'paper', 'rock'];
-// const usrin     = prompt('Rock Paper or Scissors').trim().toLowerCase();
-const rpsIndex  = rps.indexOf(usrin);
 
-
-
-console.log(`You chose ${usrin}\nComputer chose ${rps[rn]}`);
-
-if(rn == rpsIndex) {
-  console.log('Its a draw...');
-
-} else if((rpsIndex == rn + 1 ) || (rn == rpsIndex + 2)) {
-  console.log('You Lost!');
-  
-} else {
-  console.log('You Won!'); 
-}
- */
+ 
