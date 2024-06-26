@@ -7,8 +7,14 @@
 *::before {
   margin: 0;
   padding: 0;
+
+  font-family: "Gabarito", sans-serif;
+  font-optical-sizing: auto;
+
   box-sizing: border-box;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+
+  color: antiquewhite;
 }
 
 
@@ -26,6 +32,7 @@
 .l-wrapper{
   height: 100vh;
   flex-direction: column;
+  background-color: black;
 }
 
 
@@ -39,8 +46,44 @@
 
 
 .l-main {
+  flex-direction: column;
   flex-basis: 500px;
 }
+
+
+.l-content-game {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  gap: 25px;
+}
+
+.l-rps-card {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: black;
+
+  font-size: 30px;
+
+  height: 150px;
+  max-width: 150px;
+  min-width: 150px;
+
+  border-radius: 0.4rem;
+  outline: 2px solid cornflowerblue;
+
+  transition: transform .2s;
+  z-index: 0;
+}
+
+.l-rps-card:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+  z-index: 1;
+}
+
 
 .l-footer {
   max-height: 30px;
