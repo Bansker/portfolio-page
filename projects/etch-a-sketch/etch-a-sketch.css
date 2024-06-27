@@ -1,0 +1,187 @@
+:root{
+  --col-bg: #142240;
+  --col-font: #E5E5E5;
+  --col-accent: #FCA311; 
+  --col-sidebar: #0F1A30;
+  --col-eas: white;
+}
+
+*,
+*::after,
+*::before{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gabarito", sans-serif;
+  font-optical-sizing: auto;
+
+  /* 
+  font-size: calc(15px + 0.390625vw);
+  line-height: calc(20px + 0.390625vw);
+ */
+  color: var(--col-font);
+
+/*   outline: 1px solid red; */
+}
+
+body {
+  
+}
+
+h1 {
+  font-size: calc(30px + 0.390625vw);
+}
+
+p {
+  font-size: calc(15px + 0.390625vw);
+  line-height: calc(20px + 0.390625vw);
+}
+
+
+
+
+
+/* 
+██████   █████  ███████ ███████     ███████ ██      ███████ ██   ██     ███████ ███████ ████████ ████████ ██ ███    ██  ██████  ███████ 
+██   ██ ██   ██ ██      ██          ██      ██      ██       ██ ██      ██      ██         ██       ██    ██ ████   ██ ██       ██      
+██████  ███████ ███████ █████       █████   ██      █████     ███       ███████ █████      ██       ██    ██ ██ ██  ██ ██   ███ ███████ 
+██   ██ ██   ██      ██ ██          ██      ██      ██       ██ ██           ██ ██         ██       ██    ██ ██  ██ ██ ██    ██      ██ 
+██████  ██   ██ ███████ ███████     ██      ███████ ███████ ██   ██     ███████ ███████    ██       ██    ██ ██   ████  ██████  ███████ 
+*/
+.fx-item {
+  flex: 1;
+}
+
+.fx-container {
+  display: flex;
+}
+
+
+
+/*
+██████   █████   ██████  ███████     ██     ██ ██████   █████  ██████  ██████  ███████ ██████  
+██   ██ ██   ██ ██       ██          ██     ██ ██   ██ ██   ██ ██   ██ ██   ██ ██      ██   ██ 
+██████  ███████ ██   ███ █████       ██  █  ██ ██████  ███████ ██████  ██████  █████   ██████  
+██      ██   ██ ██    ██ ██          ██ ███ ██ ██   ██ ██   ██ ██      ██      ██      ██   ██ 
+██      ██   ██  ██████  ███████      ███ ███  ██   ██ ██   ██ ██      ██      ███████ ██   ██                                                                                      
+*/
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--col-bg);
+}
+
+
+
+/* 
+██   ██ ███████  █████  ██████  ███████ ██████  
+██   ██ ██      ██   ██ ██   ██ ██      ██   ██ 
+███████ █████   ███████ ██   ██ █████   ██████  
+██   ██ ██      ██   ██ ██   ██ ██      ██   ██ 
+██   ██ ███████ ██   ██ ██████  ███████ ██   ██ 
+*/
+.l-header {
+  max-height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* 
+███    ███  █████  ██ ███    ██ 
+████  ████ ██   ██ ██ ████   ██ 
+██ ████ ██ ███████ ██ ██ ██  ██ 
+██  ██  ██ ██   ██ ██ ██  ██ ██ 
+██      ██ ██   ██ ██ ██   ████ 
+*/
+.l-main-content {
+
+}
+
+.l-settings {
+  --border-radius: 30px;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+
+  background-color: var(--col-sidebar);
+  outline: 2px solid var(--col-accent);
+}
+
+.l-button-container {
+  flex-direction: column;
+  gap: 20px;
+
+  
+}
+
+.l-eas-container {
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  flex-grow: 3;
+}
+
+.l-eas {
+  --size: 700px;
+  max-width: var(--size);
+  max-height: var(--size);
+  aspect-ratio: 1/1; 
+
+  background-color: var(--col-eas);
+  
+}
+
+
+
+/* 
+███████  ██████   ██████  ████████ ███████ ██████  
+██      ██    ██ ██    ██    ██    ██      ██   ██ 
+█████   ██    ██ ██    ██    ██    █████   ██████  
+██      ██    ██ ██    ██    ██    ██      ██   ██ 
+██       ██████   ██████     ██    ███████ ██   ██ 
+*/
+.l-footer {
+  max-height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* 
+██████  ██    ██ ████████ ████████  ██████  ███    ██ ███████ 
+██   ██ ██    ██    ██       ██    ██    ██ ████   ██ ██      
+██████  ██    ██    ██       ██    ██    ██ ██ ██  ██ ███████ 
+██   ██ ██    ██    ██       ██    ██    ██ ██  ██ ██      ██ 
+██████   ██████     ██       ██     ██████  ██   ████ ███████ 
+ */
+ .l-btn {
+  border: none;
+  border-radius: 5rem;
+  padding: 20px;
+
+  font-size: calc(15px + 0.390625vw);
+  outline: 2px solid var(--col-accent);
+  
+  color: var(--col-accent);
+  background-color: var(--col-sidebar);
+
+  transition-duration: .2s;
+  transition-property: transform, background-color, color;
+}
+
+.l-btn:hover {
+  transform: scale(1.04);
+  background-color: var(--col-accent);
+  color: var(--col-sidebar);
+}
+
+/* 
+  TITLE
+  --------------------------------------------------------------------
+*/
