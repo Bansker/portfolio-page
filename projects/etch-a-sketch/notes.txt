@@ -1,1 +1,6 @@
 create user prompt changeable size 1:1 div grid with js in a 1:1 container using flexbox (max 100x100)
+
+eas:
+mosaic div width: fraction of container width
+flex wrap
+align items: stretch

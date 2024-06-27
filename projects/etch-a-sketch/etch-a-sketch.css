@@ -129,9 +129,11 @@ p {
 }
 
 .l-eas {
-  --size: 700px;
+  flex-wrap: wrap;
+  align-items: stretch;
+
+  --size: 60%;
   max-width: var(--size);
-  max-height: var(--size);
   aspect-ratio: 1/1; 
 
   background-color: var(--col-eas);
