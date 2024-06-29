@@ -6,8 +6,10 @@ const btnClear          = document.querySelector("#btn-clear");
 const easContainer      = document.querySelector(".l-eas");
 const initialGridSize   = 16;
 const initBgColor       = "white";
+
 let easTileColoringMode = 0;
-let easTileColor = "black"; 
+let easTileColor        = "black"; 
+let easTileOpacity      = 1;
 
 function getRandomRGBValue() {
   return Math.floor(Math.random() * 256);
@@ -57,7 +59,9 @@ btnRandomColors.addEventListener("click", () => {
 
 
 btnProgDarkening.addEventListener("click", () => {
-
+  easTileColoringMode = 2;
+  easTileColor        = "black";
+  easTileOpacity      = 0;
 });
 
 
@@ -75,14 +79,28 @@ btnClear.addEventListener("click", () => {
 easContainer.addEventListener("mouseover", (elem) => {
   switch(easTileColoringMode) {
     case 1:
+      easTileOpacity = 1;
       easTileColor = `rgb(${getRandomRGBValue()}, ${getRandomRGBValue()}, ${getRandomRGBValue()})`
       break;
     
+    case 2:
+      const currentTileOpacity = Number(elem.target.style.opacity);
+
+      if(currentTileOpacity < 1) {
+        easTileOpacity = currentTileOpacity + 0.1;
+
+      } else {
+        easTileOpacity = currentTileOpacity;
+      }
+      break;
+
     default:
       easTileColor = "black";
   }
 
   elem.target.style.backgroundColor = easTileColor;
+  elem.target.style.opacity         = easTileOpacity;
+
 });
 
 
