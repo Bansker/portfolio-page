@@ -6,6 +6,8 @@ const btnClear          = document.querySelector("#btn-clear");
 const easContainer      = document.querySelector(".l-eas");
 const initialGridSize   = 16;
 const initBgColor       = "white";
+let easTileColoringMode = 0;
+let easTileColor = "black"; 
 
 function getRandomRGBValue() {
   return Math.floor(Math.random() * 256);
@@ -20,17 +22,10 @@ function initGrid(gridSize) {
   }
 }
 
-function easColoring(color) {
-  easContainer.addEventListener("mouseover", (elem) => {
-    elem.target.style.backgroundColor = color;
-  });
-}
-
 
 
 window.addEventListener("load", () => {
   initGrid(initialGridSize);
-  easColoring("black");
   console.log("Loaded grid");
 
   
@@ -56,7 +51,7 @@ btnGridSize.addEventListener("click", () => {
 
 
 btnRandomColors.addEventListener("click", () => {
-
+  easTileColoringMode = 1;
 });
 
 
@@ -76,6 +71,19 @@ btnClear.addEventListener("click", () => {
 });
 
 
+
+easContainer.addEventListener("mouseover", (elem) => {
+  switch(easTileColoringMode) {
+    case 1:
+      easTileColor = `rgb(${getRandomRGBValue()}, ${getRandomRGBValue()}, ${getRandomRGBValue()})`
+      break;
+    
+    default:
+      easTileColor = "black";
+  }
+
+  elem.target.style.backgroundColor = easTileColor;
+});
 
 
 
