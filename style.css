@@ -13,6 +13,11 @@ Vertical timeline guide: https://webdesign.tutsplus.com/building-a-vertical-time
 */
 
 :root{
+  /* --col-text: bisque; */
+  --col-text: #f3ecd3;
+  --col-accent: var(--col-text);
+  --col-bg: black;
+  --col-bg-card: white;
 
 }
 
@@ -48,6 +53,8 @@ p {
 }
 
 
+
+
 /* 
 ----------------------------------------------------------------------------------------
 ███████ ██      ███████ ██   ██ 
@@ -71,6 +78,8 @@ p {
 }
 
 
+
+
 /* 
 ----------------------------------------------------------------------------------------
 ███    ███  ██████  ██████  ██ ███████ ██ ███████ ██████  ███████ 
@@ -90,6 +99,9 @@ p {
   margin-top: -50px;
 }
 
+
+
+
 /* 
 ----------------------------------------------------------------------------------------
 ██   ██ ███████  █████  ██████  ███████ ██████  
@@ -100,13 +112,12 @@ p {
 ----------------------------------------------------------------------------------------
 */
 
-
 .l-header {
   flex-wrap:wrap;
   flex-basis: 100vh;
   /* max-height: 100vh; */
-  background-color: black;
-  color: bisque;
+  background-color: var(--col-bg);
+  color: var(--col-text);
   /* mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50%/120px 100%; */
   
 }
@@ -162,8 +173,6 @@ HEADER TEXT
 
 
 
-
-
 /* 
 ----------------------------------------------------------------------------------------
 ███    ███  █████  ██ ███    ██ 
@@ -174,26 +183,64 @@ HEADER TEXT
 ----------------------------------------------------------------------------------------
 */
 
-.l-section-view {
+.l-main-content {
   padding: 40px 50px;
 }
 /* 
-.l-section-view h1 {
+.l-main-content h1 {
   transform: rotate(-3deg);
   translate: 100px;
 } */
 
-.m-section-one {
+
+.m-main-curriculum {
   background-color: cornflowerblue;
+  justify-content: center;
 }
 
-.m-section-two {
+.m-main-projects {
   flex-direction: column;
   background-color: #F45B69;
 }
 
 .l-project-cards-container {
   background-color: #ffffff;
+}
+
+
+
+
+/* 
+----------------------------------------------------------------------------------------
+ ██████  █████  ██████  ██████  ███████ 
+██      ██   ██ ██   ██ ██   ██ ██      
+██      ███████ ██████  ██   ██ ███████ 
+██      ██   ██ ██   ██ ██   ██      ██ 
+ ██████ ██   ██ ██   ██ ██████  ███████ 
+----------------------------------------------------------------------------------------
+*/
+
+.l-card-container {
+  flex-direction: column;
+  align-items: stretch;
+
+  gap: 20px;
+  max-width: 700px;
+}
+
+.l-card {
+  background-color: var(--col-bg-card);
+  border-radius: 0.3rem;
+  
+}
+
+/* 
+MODIFIERS
+----------------------------------------------------------------------------------------
+*/
+
+.m-card-cv {
+
 }
 
 
@@ -221,17 +268,19 @@ HEADER TEXT
   height: 60px;
   
   background-color: black;
-  color: bisque;
+  color: var(--col-accent);
   
   border: none;
   border-radius: 0.4rem;
-  outline: 3px dashed bisque;
+  outline: 3px dashed var(--col-accent);
 }
 
 .l-button:hover {
-  outline: 3px solid bisque;
+  outline: 3px solid var(--col-accent);
   cursor: pointer;
 }
+
+
 
 
 /* 
@@ -308,6 +357,8 @@ HEADER TEXT
 }
 
 
+
+
 /* 
 ----------------------------------------------------------------------------------------
 ███████  ██████   ██████  ████████ ███████ ██████  
@@ -317,3 +368,4 @@ HEADER TEXT
 ██       ██████   ██████     ██    ███████ ██   ██
 ----------------------------------------------------------------------------------------
 */
+
