@@ -229,9 +229,11 @@ HEADER TEXT
 }
 
 .l-card {
+  flex-direction: column;
+  padding: 5px;
+
   background-color: var(--col-bg-card);
   border-radius: 0.3rem;
-  
 }
 
 /* 
@@ -243,7 +245,9 @@ MODIFIERS
 
 }
 
+.m-card-cv time {
 
+}
 
 
 /* 
