@@ -42,10 +42,30 @@ body {
 
 h1 {
   font-size: calc(30px + 0.390625vw);
+  
+  --gradient-value: 140deg, rgba(79,0,130,1) 0%, rgba(148,0,69,1) 59%, rgba(255,0,0,1) 100%;
+  background: rgb(79,0,130);
+  background:         linear-gradient(var(--gradient-value));
+  background:    -moz-linear-gradient(var(--gradient-value));
+  background: -webkit-linear-gradient(var(--gradient-value));
+          background-clip: text;
+     -moz-background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 h2 {
   font-size: calc(25px + 0.390625vw);
+
+  --gradient-value: 140deg, rgb(228, 68, 5) 0%, rgb(133, 39, 241) 100%;
+  background: rgb(108,0,235);
+  background:         linear-gradient(var(--gradient-value));
+  background:    -moz-linear-gradient(var(--gradient-value));
+  background: -webkit-linear-gradient(var(--gradient-value));
+          background-clip: text;
+     -moz-background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 p {
@@ -89,7 +109,7 @@ p {
 ██      ██  ██████  ██████  ██ ██      ██ ███████ ██   ██ ███████
 ----------------------------------------------------------------------------------------
 */
-
+/* 
 .m-top-slant {
   clip-path: polygon(0 0,100% 0,100% 100%,0 calc(100% - 50px));
 }
@@ -98,7 +118,7 @@ p {
   clip-path: polygon(0 0,100% 50px,100% 100%,0 100%);
   margin-top: -50px;
 }
-
+ */
 
 
 
@@ -194,7 +214,9 @@ HEADER TEXT
 
 
 .m-main-curriculum {
-  background-color: cornflowerblue;
+  /* background-color: cornflowerblue; */
+  background-color: black;
+  color: #f3ecd3;
   justify-content: center;
 }
 
@@ -233,7 +255,7 @@ HEADER TEXT
   padding: 5px;
 
   background-color: var(--col-bg-card);
-  border-radius: 0.3rem;
+
 }
 
 /* 
@@ -242,11 +264,21 @@ MODIFIERS
 */
 
 .m-card-cv {
+  background-color: var(--col-bg);
+  border-radius: 1rem;
 
+/*   border-top-right-radius: 1px solid var(--col-text);
+  border-bottom-left-radius: 1px solid var(--col-text); */
+  outline: 1px solid var(--col-text);
 }
 
 .m-card-cv time {
+  font-size: calc(18px + 0.390625vw);
+}
 
+.m-card-cv p:first-of-type {
+
+  margin-bottom: 10px;
 }
 
 
