@@ -14,10 +14,15 @@ Vertical timeline guide: https://webdesign.tutsplus.com/building-a-vertical-time
 
 :root{
   /* --col-text: bisque; */
-  --col-text: #f3ecd3;
+  --col-text: rgb(202, 202, 202);
   --col-accent: var(--col-text);
   --col-bg: black;
   --col-bg-card: white;
+
+  --fsize-h1: calc(30px + 0.390625vw);
+  --fsize-h2: calc(25px + 0.390625vw);
+  --fsize-p: calc(15px + 0.390625vw);
+  --fsize-btn: calc(19px + 0.390625vw);
 
 }
 
@@ -29,6 +34,7 @@ Vertical timeline guide: https://webdesign.tutsplus.com/building-a-vertical-time
   box-sizing: border-box;
   font-family: "Gabarito", sans-serif;
   font-optical-sizing: auto;
+  color: var(--col-text);
 
   letter-spacing: 1px;
   line-height: calc(26px + 0.390625vw);
@@ -41,7 +47,7 @@ body {
 }
 
 h1 {
-  font-size: calc(30px + 0.390625vw);
+  font-size: var(--fsize-h1);
   
   --gradient-value: 140deg, rgba(79,0,130,1) 0%, rgba(148,0,69,1) 59%, rgba(255,0,0,1) 100%;
   background: rgb(79,0,130);
@@ -55,7 +61,7 @@ h1 {
 }
 
 h2 {
-  font-size: calc(25px + 0.390625vw);
+  font-size: var(--fsize-h2);
 
   --gradient-value: 140deg, rgb(228, 68, 5) 0%, rgb(133, 39, 241) 100%;
   background: rgb(108,0,235);
@@ -69,7 +75,7 @@ h2 {
 }
 
 p {
-  font-size: calc(15px + 0.390625vw);
+  font-size: var(--fsize-p);
 }
 
 
@@ -143,6 +149,8 @@ p {
 }
 
 
+
+
 /* 
 HEADER IMAGE
 ----------------------------------------------------------------------------------------
@@ -177,9 +185,16 @@ HEADER TEXT
 ----------------------------------------------------------------------------------------
 */
 
+.l-header-text-container {
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+}
+
 .l-header-text {
   flex-direction: column;
-  padding: 50px;
+  justify-content: center;
+  flex-grow: 3;
 }
 
 .l-header-text > h1 {
@@ -188,9 +203,13 @@ HEADER TEXT
 
 .l-header-text > p {
   margin-bottom: 20px;
+ /*  font-size: calc(50px + 0.390625vw);  */
 }
 
-
+.s-name {
+  font-weight: bolder;
+  font-size: calc(80px + 0.390625vw);
+}
 
 
 /* 
@@ -212,11 +231,16 @@ HEADER TEXT
   translate: 100px;
 } */
 
+.l-main-content p {
+
+}
+
+
+
 
 .m-main-curriculum {
   /* background-color: cornflowerblue; */
   background-color: black;
-  color: #f3ecd3;
   justify-content: center;
 }
 
@@ -269,7 +293,7 @@ MODIFIERS
 
 /*   border-top-right-radius: 1px solid var(--col-text);
   border-bottom-left-radius: 1px solid var(--col-text); */
-  outline: 1px solid var(--col-text);
+  /* outline: 1px solid var(--col-text); */
 }
 
 .m-card-cv time {
@@ -299,7 +323,7 @@ MODIFIERS
 }
 
 .l-button {
-  font-size: 20px;
+  font-size: var(--fsize-btn);
   width: 250px;
   height: 60px;
   
