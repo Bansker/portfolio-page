@@ -1,0 +1,21 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gabarito", sans-serif;
+  font-optical-sizing: auto;
+  color: var(--col-text);
+  letter-spacing: 1px;
+  line-height: calc(26px + 0.390625vw);
+  /* outline: 1px solid red; */
+}
+
+body {
+  /* background-color: cornflowerblue; */
+}
+
+.header {
+  background-color: blue;
+}/*# sourceMappingURL=style.css.map */
