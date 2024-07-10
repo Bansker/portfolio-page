@@ -12,4 +12,8 @@
 
 .calculator {
   background-color: $c-darkgrey;
+
+  @at-root #{&}__keyboard {
+    background-color: aliceblue;
+  }
 }
