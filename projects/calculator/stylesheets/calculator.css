@@ -25,12 +25,13 @@ LAYOUT VALUES
   flex: 1;
   display: flex;
   flex-direction: column;
-  max-width: 500px;
   max-height: 800px;
+  max-width: 500px;
   padding: 15px;
   gap: 15px;
   border-radius: 0.5rem;
   background-color: #18191F;
+  box-shadow: 10px 10px 10px grey;
 }
 .calculator__display {
   display: flex;
@@ -40,25 +41,24 @@ LAYOUT VALUES
   border-radius: 0.5rem;
   background-color: #D4E2E3;
 }
-.display__expression {
+.display {
   flex: 1;
-  align-self: flex-start;
-  margin-right: auto;
   font-family: "Kode Mono", monospace;
   font-optical-sizing: auto;
   font-style: normal;
-  font-size: 30px;
+  font-size: 35px;
+  text-shadow: 3px 3px 2px grey;
+}
+
+.display__expression {
+  align-self: flex-start;
+  margin-right: auto;
 }
 
 .display__result {
-  flex: 1;
   align-self: flex-end;
   align-content: flex-end;
   margin-left: auto;
-  font-family: "Kode Mono", monospace;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-size: 30px;
 }
 
 .calculator__keyboard {

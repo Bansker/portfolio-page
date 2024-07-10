@@ -5,15 +5,21 @@ COLORS
 */
 
 // General
-$c-orange: #E88E50;
-$c-yellow: #13151C;
-$c-purple: #7264AB;
-$c-grey: #4F4B52;
+$c-orange:   #E88E50;
+$c-yellow:   #13151C;
+$c-purple:   #7264AB;
+$c-grey:     #4F4B52;
 $c-darkgrey: #18191F;
 
-//Element Specific
+// Element Specific
 $c-bg-lcd: #D4E2E3;
 $c-fg-lcd: #000000;
+
+// button shadow lighting
+$bottom-shadow-intensity: 0.6;
+$bottom-shadow-length:    7.5%;
+$top-shadow-intensity:    0.4;
+$top-shadow-length:       97%;
 
 
 
@@ -29,8 +35,8 @@ $base-border-radius: 0.5rem;
 $display-padding: 10px;
 
 // Heights 
-$calculator-height: 800px;
-$display-height: 150px;
+$calculator-height:   800px;
+$display-height:      150px;
 $keyboard-btn-height: 60px;
 
 // Widths
@@ -43,7 +49,7 @@ $keyboard-elem-gap: 8px;
 $elem-border-distance: 15px;
 
 // Font Specific
-$display-font-size: 30px;
+$display-font-size:  35px;
 $keyboard-font-size: 30px;
 
 

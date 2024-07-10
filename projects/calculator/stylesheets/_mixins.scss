@@ -10,3 +10,13 @@
   font-optical-sizing: auto;
   font-size: $font-size;
 }
+
+@mixin button-lighting-shadow($bottom-shadow-intensity, $bottom-shadow-length, $top-shadow-intensity, $top-shadow-length) {
+  background: linear-gradient(0deg, 
+                            rgba(0,0,0,$bottom-shadow-intensity) 0%, 
+                            rgba(0,0,0,0) $bottom-shadow-length, 
+                            rgba(255,255,255,0) $top-shadow-length, 
+                            rgba(255,255,255,$top-shadow-intensity) 100%
+                            );
+  
+}

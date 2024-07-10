@@ -6,8 +6,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  margin:     0;
+  padding:    0;
 }
 
 
@@ -15,10 +15,10 @@
 
 .wrapper{
   display: flex;
-  height: 100vh;
+  height:  100vh;
 
   justify-content: center;
-  align-items: center;
+  align-items:     center;
 }
 
 
@@ -26,58 +26,59 @@
 
 
 .calculator {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  flex:             1;
+  display:          flex;
+  flex-direction:   column;
 
-  max-width: $calculator-width;
-  max-height: $calculator-height;
-  padding: $elem-border-distance;
-  gap: $elem-border-distance;
+  max-height:       $calculator-height;
+  max-width:        $calculator-width;
 
-  border-radius: $base-border-radius;
+  padding:          $elem-border-distance;
+  gap:              $elem-border-distance;
+  border-radius:    $base-border-radius;
+
   background-color: $c-darkgrey;
+  box-shadow: 10px 10px 10px grey;
 
 
   @at-root .calculator__display {
-    display: flex;
-    flex-direction: column;
-    min-height: $display-height;
-    padding: $display-padding;
-
-    border-radius: $base-border-radius;
+    display:          flex;
+    flex-direction:   column;
+    min-height:       $display-height;
+    padding:          $display-padding;
+    
+    border-radius:    $base-border-radius;
     background-color: $c-bg-lcd;
 
+    @at-root .display {
+      flex: 1;
+      @include display-font($display-font-size);
+      text-shadow: 3px 3px 2px grey;
+    }
 
     @at-root .display__expression {
-      flex: 1;
-      align-self: flex-start;
+      align-self:   flex-start;
       margin-right: auto;
-      
-      @include display-font($display-font-size);
     }
 
 
     @at-root .display__result {
-      flex: 1;
-      align-self: flex-end;
-      align-content: flex-end;
-      margin-left: auto;
-
-      @include display-font($display-font-size);
+      align-self:     flex-end;
+      align-content:  flex-end;
+      margin-left:    auto;
     }
   }
 
 
   @at-root .calculator__keyboard {
-    display: flex;
+    display:        flex;
     flex-direction: column;
-    gap: $keyboard-elem-gap;
+    gap:            $keyboard-elem-gap;
 
 
     @at-root .keyboard__keyrow {
       display: flex;
-      gap: $keyboard-elem-gap;
+      gap:     $keyboard-elem-gap;
 
 
       @at-root .keyboard__keyrow__btn {
@@ -86,25 +87,29 @@
 
         
         border: none;
-        border-top-left-radius: $base-border-radius;
-        border-top-right-radius: $base-border-radius;
-        border-bottom-left-radius: $base-border-radius * 2;
+        border-top-left-radius:     $base-border-radius;
+        border-top-right-radius:    $base-border-radius;
+        border-bottom-left-radius:  $base-border-radius * 2;
         border-bottom-right-radius: $base-border-radius * 2;
         
-        background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 7.5%, rgba(255,255,255,0) 97%, rgba(255,255,255,0.4) 100%);
-        
+        //background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 7.5%, rgba(255,255,255,0) 97%, rgba(255,255,255,0.4) 100%);
+        @include button-lighting-shadow($bottom-shadow-intensity, 
+                                        $bottom-shadow-length, 
+                                        $top-shadow-intensity, 
+                                        $top-shadow-length);
+
         @include keyboard-btn-font($keyboard-font-size);
       }
 
 
       @at-root .keyboard__keyrow__btn--numbers {
-        color: white;
+        color:          white;
         background-color: $c-grey;
       }
 
 
       @at-root .keyboard__keyrow__btn--operators {
-        color: black;
+        color:          black;
         background-color: $c-orange;
       }
     }
