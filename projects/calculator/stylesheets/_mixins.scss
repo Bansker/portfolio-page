@@ -1,0 +1,12 @@
+@mixin display-font($font-size) {
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: $font-size;
+}
+
+@mixin keyboard-btn-font($font-size) {
+  font-family: sans-serif;
+  font-optical-sizing: auto;
+  font-size: $font-size;
+}

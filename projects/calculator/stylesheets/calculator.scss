@@ -1,5 +1,6 @@
-@import "_colors.scss";
+@import "_variables.scss";
 @import "_buttons.scss";
+@import "_mixins.scss";
 
 *,
 *::before,
@@ -7,9 +8,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
-  font-family: sans-serif;
 }
+
+
+
 
 .wrapper{
   display: flex;
@@ -19,36 +21,42 @@
   align-items: center;
 }
 
+
+
+
+
 .calculator {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex: 1;
 
-  max-width: 500px;
-  max-height: 800px;
-  padding: 15px;
-  gap: 15px;
+  max-width: $calculator-width;
+  max-height: $calculator-height;
+  padding: $elem-border-distance;
+  gap: $elem-border-distance;
 
-  border-radius: 0.5rem;
+  border-radius: $base-border-radius;
   background-color: $c-darkgrey;
+
 
   @at-root .calculator__display {
     display: flex;
     flex-direction: column;
-    min-height: 200px;
-    padding: 10px;
+    min-height: $display-height;
+    padding: $display-padding;
 
-    border-radius: 0.5rem;
+    border-radius: $base-border-radius;
     background-color: $c-bg-lcd;
+
 
     @at-root .display__expression {
       flex: 1;
       align-self: flex-start;
       margin-right: auto;
       
-      font-family: monospace;
-      font-size: 30px;
+      @include display-font($display-font-size);
     }
+
 
     @at-root .display__result {
       flex: 1;
@@ -56,40 +64,48 @@
       align-content: flex-end;
       margin-left: auto;
 
-      font-family: monospace;
-      font-size: 30px;
+      @include display-font($display-font-size);
     }
   }
+
 
   @at-root .calculator__keyboard {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: $keyboard-elem-gap;
+
 
     @at-root .keyboard__keyrow {
       display: flex;
-      gap: 8px;
+      gap: $keyboard-elem-gap;
+
 
       @at-root .keyboard__keyrow__btn {
         flex: 1;
-        height: 60px;
-        font-size: 25px;
+        height: $keyboard-btn-height;
+
+        
         border: none;
-        border-radius: 1rem;
-        border-top-left-radius: 0.5rem;
-        border-top-right-radius: 0.5rem;
+        border-top-left-radius: $base-border-radius;
+        border-top-right-radius: $base-border-radius;
+        border-bottom-left-radius: $base-border-radius * 2;
+        border-bottom-right-radius: $base-border-radius * 2;
+        
+        background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 7.5%, rgba(255,255,255,0) 97%, rgba(255,255,255,0.4) 100%);
+        
+        @include keyboard-btn-font($keyboard-font-size);
       }
+
 
       @at-root .keyboard__keyrow__btn--numbers {
         color: white;
         background-color: $c-grey;
-
       }
+
 
       @at-root .keyboard__keyrow__btn--operators {
         color: black;
         background-color: $c-orange;
-
       }
     }
   }
