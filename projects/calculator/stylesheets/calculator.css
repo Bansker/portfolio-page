@@ -87,9 +87,29 @@ LAYOUT VALUES
 .keyboard__keyrow__btn--numbers {
   color: white;
   background-color: #4F4B52;
+  transition-duration: 0.1s;
+  transition-property: transform, background-color;
+}
+.keyboard__keyrow__btn--numbers:hover {
+  transform: scale(1.03);
+}
+.keyboard__keyrow__btn--numbers:active {
+  transform: scale(0.95);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 14.5%, rgba(255, 255, 255, 0) 97%, rgba(255, 255, 255, 0) 100%);
+  background-color: #4F4B52;
 }
 
 .keyboard__keyrow__btn--operators {
   color: black;
+  background-color: #E88E50;
+  transition-duration: 0.1s;
+  transition-property: transform, background-color;
+}
+.keyboard__keyrow__btn--operators:hover {
+  transform: scale(1.03);
+}
+.keyboard__keyrow__btn--operators:active {
+  transform: scale(0.95);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 14.5%, rgba(255, 255, 255, 0) 97%, rgba(255, 255, 255, 0) 100%);
   background-color: #E88E50;
 }/*# sourceMappingURL=calculator.css.map */

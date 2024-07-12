@@ -85,7 +85,6 @@
         flex: 1;
         height: $keyboard-btn-height;
 
-        
         border: none;
         border-top-left-radius:     $base-border-radius;
         border-top-right-radius:    $base-border-radius;
@@ -99,18 +98,52 @@
                                         $top-shadow-length);
 
         @include keyboard-btn-font($keyboard-font-size);
+
+
       }
 
 
       @at-root .keyboard__keyrow__btn--numbers {
         color:          white;
         background-color: $c-grey;
+
+        transition-duration: .1s;
+        transition-property: transform, background-color;
+
+        &:hover{
+          transform: scale(1.03);
+        }
+
+        &:active {
+          transform: scale(0.95);
+          @include button-lighting-shadow($bottom-shadow-intensity, 
+                                          $bottom-shadow-length + 7%, 
+                                          $top-shadow-intensity - $top-shadow-intensity, 
+                                          $top-shadow-length);
+          background-color: $c-grey;
+        }
       }
 
 
       @at-root .keyboard__keyrow__btn--operators {
         color:          black;
         background-color: $c-orange;
+
+        transition-duration: .1s;
+        transition-property: transform, background-color;
+
+        &:hover{
+          transform: scale(1.03);
+        }
+
+        &:active {
+          transform: scale(0.95);
+          @include button-lighting-shadow($bottom-shadow-intensity, 
+                                          $bottom-shadow-length + 7%, 
+                                          $top-shadow-intensity - $top-shadow-intensity, 
+                                          $top-shadow-length);
+          background-color: $c-orange;
+        }
       }
     }
   }

@@ -1,4 +1,10 @@
+function log(input) {console.log(input)};
+
+
 const Keyboard = {
+  btn_numbers   : Array.from(document.querySelectorAll('.keyboard__keyrow__btn--numbers')),
+  btn_operators : Array.from(document.querySelectorAll('.keyboard__keyrow__btn--operators')),
+
   btn_0 : document.querySelector('#btn-0'),
   btn_1 : document.querySelector('#btn-1'),
   btn_2 : document.querySelector('#btn-2'),
@@ -20,29 +26,42 @@ const Keyboard = {
   btn_exp : document.querySelector('#btn-exp'),
   btn_ans : document.querySelector('#btn-ans'),
   btn_eq  : document.querySelector('#btn-eq'),
+
+
+};
+
+const display = {
+  expression : document.querySelector('.display__expression'),
+  result     : document.querySelector('.display__result'),
+};
+
+display.expression.textContent = 'hello';
+
+for(let i = 0; i < Keyboard.btn_numbers.length; i++) {
+  Keyboard.btn_numbers[i].addEventListener('click', (event) => {
+    elem = event.target.textContent;
+    log(elem);
+
+    display.expression.textContent += elem;
+  });
+}
+
+for(let i = 0; i < Keyboard.btn_operators.length; i++) {
+  Keyboard.btn_operators[i].addEventListener('click', (event) => {
+    elem = event.target.textContent;
+    log(elem);
+
+    if(elem == 'AC') {
+      display.expression.textContent = '';
+      display.result.textContent     = '';
+    }
+  });
 }
 
 
-/* 
-const btn_0 = document.querySelector('#btn-0');
-const btn_1 = document.querySelector('#btn-1');
-const btn_2 = document.querySelector('#btn-2');
-const btn_3 = document.querySelector('#btn-3');
-const btn_4 = document.querySelector('#btn-4');
-const btn_5 = document.querySelector('#btn-5');
-const btn_6 = document.querySelector('#btn-6');
-const btn_7 = document.querySelector('#btn-7');
-const btn_8 = document.querySelector('#btn-8');
-const btn_9 = document.querySelector('#btn-9');
 
-const btn_del = document.querySelector('#btn-del');
-const btn_ac  = document.querySelector('#btn-ac');
-const btn_mul = document.querySelector('#btn-mul');
-const btn_div = document.querySelector('#btn-div');
-const btn_add = document.querySelector('#btn-add');
-const btn_sub = document.querySelector('#btn-sub');
-const btn_dot = document.querySelector('#btn-dot');
-const btn_exp = document.querySelector('#btn-exp');
-const btn_ans = document.querySelector('#btn-ans');
-const btn_eq  = document.querySelector('#btn-eq');
- */
+
+
+
+
+
