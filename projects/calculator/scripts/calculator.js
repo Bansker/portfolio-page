@@ -30,21 +30,29 @@ const Keyboard = {
 
 };
 
-const display = {
+const Display = {
   expression : document.querySelector('.display__expression'),
   result     : document.querySelector('.display__result'),
 };
 
-display.expression.textContent = 'hello';
+
 
 for(let i = 0; i < Keyboard.btn_numbers.length; i++) {
   Keyboard.btn_numbers[i].addEventListener('click', (event) => {
-    elem = event.target.textContent;
-    log(elem);
+    btn_function = event.target.textContent;
+    log(btn_function);
+//('+' || '-' || '×' || '÷')
+    let displayChars = Display.expression.textContent.split('');
+    if(displayChars[displayChars - 1] != '+') {
+      Display.expression.textContent += btn_function;
+      displayChars = Display.expression.textContent.split('');
 
-    display.expression.textContent += elem;
+      log(displayChars);
+    }
   });
 }
+
+
 
 for(let i = 0; i < Keyboard.btn_operators.length; i++) {
   Keyboard.btn_operators[i].addEventListener('click', (event) => {
@@ -52,8 +60,8 @@ for(let i = 0; i < Keyboard.btn_operators.length; i++) {
     log(elem);
 
     if(elem == 'AC') {
-      display.expression.textContent = '';
-      display.result.textContent     = '';
+      Display.expression.textContent = '';
+      Display.result.textContent     = '';
     }
   });
 }
