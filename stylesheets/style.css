@@ -9,13 +9,13 @@
   color: var(--col-text);
   letter-spacing: 1px;
   line-height: calc(26px + 0.390625vw);
-  /* outline: 1px solid red; */
+  /*   outline: 1px solid red; */
 }
 
-body {
-  /* background-color: cornflowerblue; */
-}
-
-.header {
-  background-color: blue;
+/* 
+COLORS
+*/
+.wrapper {
+  height: 100vh;
+  background-color: #293653;
 }/*# sourceMappingURL=style.css.map */

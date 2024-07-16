@@ -1,5 +1,7 @@
 @use './normalize.scss';
+@import './variables';
 
-.header {
-  background-color: blue;
+.wrapper {
+  height: 100vh;
+  background-color: $c-bg;
 }
