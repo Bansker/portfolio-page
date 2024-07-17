@@ -1,4 +1,5 @@
 const plxWrapper = document.querySelector('.plx-wrapper');
+const out = document.querySelector('.js-out');
 const density = 200;
 
 const stickSrc = './svg/stick_smaller.svg';
@@ -62,8 +63,10 @@ document.addEventListener('mousemove', (ev) => {
     stick.style.transform = `translateX(${x}px) translateY(${y}px) rotate(${angle}deg) scale(2)`;
   });
 });
-DeviceOrientationEvent
-document.addEventListeners('Orientation_a')
+
+document.addEventListeners('deviceorientation', (ev) =>{
+  out.textContent = `Alpha: ${ev.alpha}, Beta: ${ev.beta}, Gamma: ${ev.gamma}`;
+});
 
 
 
