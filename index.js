@@ -1,28 +1,77 @@
-const wrapper = document.querySelector('.wrapper');
-const density = 100;
+const plxWrapper = document.querySelector('.plx-wrapper');
+const density = 200;
 
 const stickSrc = './svg/stick_smaller.svg';
 
-let windowWidth = window.innerWidth;
-let windowHeight = window.innerHeight;
+const windowWidth = window.innerWidth;
+const windowHeight = window.innerHeight;
 
 
-let elements = [];
-for(let i = 0; i < density; i++) {
-  let randAngle  = Math.floor(Math.random() * 360);
-  let randXrange = Math.floor(Math.random() * windowWidth);
-  let randYrange = Math.floor(Math.random() * windowHeight);
 
-  elements[i] = document.createElement('img');
-  elements[i].src = stickSrc;
-  elements[i].setAttribute('style', `transform: scale(1) translate(${randXrange}px, ${randYrange}px) rotate(${randAngle}deg);
-                                     filter: invert(61%) sepia(46%) saturate(5056%) hue-rotate(2deg) brightness(102%) contrast(101%);`);
-  
-  wrapper.appendChild(elements[i]);
+function getRandomSignedValue(range) {
+  const randSign = Math.random() > 0.5 ? 1 : -1;
+  const randValue = Math.floor(Math.random() * range);
+  return randValue * randSign
 }
 
+function getRandomValue(range) {
+  return Math.floor(Math.random() * range);
+}
+
+
+
+let sticks = [];
+for(let i = 0; i < density; i++) {
+  const randAngle  = getRandomValue(360);
+  const randXrange = getRandomValue(windowWidth);
+  const randYrange = getRandomValue(windowHeight);
+  const randPositionTop = getRandomValue(100);
+  const randPositionLeft = getRandomValue(100);
+
+  sticks[i] = document.createElement('img');
+  sticks[i].src = stickSrc;
+
+  sticks[i].setAttribute('value', `${getRandomSignedValue(30)}`);
+
+  sticks[i].setAttribute('style', `position: absolute;
+                                   top: ${randPositionTop}%;
+                                   left: ${randPositionLeft}%;
+                                   transform: rotate(${randAngle}deg) scale(2);
+                                   filter: invert(61%) sepia(46%) saturate(5056%) hue-rotate(2deg) brightness(102%) contrast(101%);`);
+  
+  plxWrapper.appendChild(sticks[i]);
+}
+
+
+document.addEventListener('mousemove', (ev) => {
+  sticks.forEach((stick) => {
+    const randAngle  = 5;
+    const position = stick.getAttribute('value');
+    const x = (window.innerWidth - ev.pageX * position) / 250;
+    const y = (window.innerHeight - ev.pageY * position) / 250;
+
+    // Stolen from https://stackoverflow.com/questions/59882504/how-to-get-style-transform-rotate-value-in-javascript
+    let angle = 0;
+    const rotate = stick.style.transform.match(/rotate\((\d+)(.+)\)/);
+    if (rotate) {
+      let [num, unit] = rotate.slice(1);  // slice is needed since first element contains entire match
+      //console.log('num:', num, 'unit:', unit);
+      angle = num;
+    }
+
+    stick.style.transform = `translateX(${x}px) translateY(${y}px) rotate(${angle}deg) scale(2)`;
+  });
+});
+DeviceOrientationEvent
+document.addEventListeners('Orientation_a')
+
+
+
+
+
+/* 
 document.addEventListener('mousemove', (e) => {
-  elements.forEach((shift) => {
+  sticks.forEach((shift) => {
     const max = 300;
 
     const position = Math.round(Math.random()) * 2 - 1;
@@ -40,31 +89,24 @@ document.addEventListener('mousemove', (e) => {
   });
 });
 
+ */
 
-/* let elements = [];
+
+
+
+/* let sticks = [];
 for(let i = 0; i < density; i++) {
   let randXrange = Math.floor(Math.random() * windowWidth);
   let randYrange = Math.floor(Math.random() * windowHeight);
   let randAngle  = Math.floor(Math.random() * 360);
 
-  elements[i] = document.createElement('img');
-  elements[i].src = stickSrc;
-  elements[i].setAttribute('style', `transform: translate(${randXrange}px, ${randYrange}px) rotate(${randAngle}deg);
+  sticks[i] = document.createElement('img');
+  sticks[i].src = stickSrc;
+  sticks[i].setAttribute('style', `transform: translate(${randXrange}px, ${randYrange}px) rotate(${randAngle}deg);
                                      filter: invert(61%) sepia(46%) saturate(5056%) hue-rotate(2deg) brightness(102%) contrast(101%);`);
   
-  wrapper.appendChild(elements[i]);
+  plxWrapper.appendChild(sticks[i]);
 } */
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -16,7 +16,12 @@
 /* 
 COLORS
 */
-.wrapper {
+.plx-wrapper {
+  position: relative;
+  width: 100%;
   height: 100vh;
   background-color: #293653;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=style.css.map */
