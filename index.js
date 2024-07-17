@@ -64,8 +64,9 @@ document.addEventListener('mousemove', (ev) => {
   });
 });
 
+
 window.addEventListener('deviceorientation', (ev) =>{
-  out.textContent = `Alpha: ${ev.alpha}, Beta: ${ev.beta}, Gamma: ${ev.gamma}`;
+  out.textContent = `Alpha: ${ev.alpha.toFixed(2)}, Beta: ${ev.beta.toFixed(2)}, Gamma: ${ev.gamma.toFixed(2)}`;
 });
 
 
