@@ -68,8 +68,8 @@ window.addEventListener('deviceorientation', (ev) =>{
 
   sticks.forEach((stick) => {
     const position = stick.getAttribute('value');
-    const x = (window.innerWidth - ev.gamma * position) / 10;
-    const y = (window.innerHeight - ev.beta * position) / 10;
+    const x = (window.innerWidth - ev.gamma * position) / 40;
+    const y = (window.innerHeight - ev.beta * position) / 40;
 
     // Shamelessly Stolen from https://stackoverflow.com/questions/59882504/how-to-get-style-transform-rotate-value-in-javascript
     let angle = 0;
