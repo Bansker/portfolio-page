@@ -24,8 +24,7 @@ function getRandomValue(range) {
 let sticks = [];
 for(let i = 0; i < density; i++) {
   const randAngle  = getRandomValue(360);
-  const randXrange = getRandomValue(windowWidth);
-  const randYrange = getRandomValue(windowHeight);
+
   const randPositionTop = getRandomValue(100);
   const randPositionLeft = getRandomValue(100);
 
@@ -50,7 +49,7 @@ document.addEventListener('mousemove', (ev) => {
     const x = (window.innerWidth - ev.pageX * position) / 250;
     const y = (window.innerHeight - ev.pageY * position) / 250;
 
-    // Stolen from https://stackoverflow.com/questions/59882504/how-to-get-style-transform-rotate-value-in-javascript
+    // Shamelessly Stolen from https://stackoverflow.com/questions/59882504/how-to-get-style-transform-rotate-value-in-javascript
     let angle = 0;
     const rotate = stick.style.transform.match(/rotate\((\d+)(.+)\)/);
     if (rotate) {
@@ -72,7 +71,7 @@ window.addEventListener('deviceorientation', (ev) =>{
     const x = (window.innerWidth - ev.gamma * position) / 10;
     const y = (window.innerHeight - ev.beta * position) / 10;
 
-    // Stolen from https://stackoverflow.com/questions/59882504/how-to-get-style-transform-rotate-value-in-javascript
+    // Shamelessly Stolen from https://stackoverflow.com/questions/59882504/how-to-get-style-transform-rotate-value-in-javascript
     let angle = 0;
     const rotate = stick.style.transform.match(/rotate\((\d+)(.+)\)/);
     if (rotate) {
