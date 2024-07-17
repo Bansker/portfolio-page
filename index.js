@@ -66,7 +66,7 @@ document.addEventListener('mousemove', (ev) => {
 
 
 window.addEventListener('deviceorientation', (ev) =>{
-  out.textContent = `Alpha: ${ev.alpha.toFixed(2)}, Beta: ${ev.beta.toFixed(2)}, Gamma: ${ev.gamma.toFixed(2)}`;
+  out.textContent = `Alpha: ${Math.round(ev.alpha)}, Beta: ${Math.round(ev.beta)}, Gamma: ${Math.round(ev.gamma)}`;
 });
 
 
