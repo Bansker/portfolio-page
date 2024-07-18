@@ -14,6 +14,10 @@ function getRandomValue(range) {
   return Math.floor(Math.random() * range);
 }
 
+function computeDepthScale(baseScale) {
+
+}
+
 
 const mobile        = isMobile();
 const plxWrapper    = document.querySelector('.plx-wrapper');
@@ -28,9 +32,8 @@ const stickColor = `invert(61%) sepia(46%) saturate(5056%) hue-rotate(2deg) brig
 
 let sticks = [];
 for(let i = 0; i < density; i++) {
-  const randAngle  = getRandomValue(360);
-
-  const randPositionTop = getRandomValue(100);
+  const randAngle        = getRandomValue(360);
+  const randPositionTop  = getRandomValue(100);
   const randPositionLeft = getRandomValue(100);
 
   const elemPositionalValue = getRandomSignedValue(30);
@@ -53,25 +56,23 @@ for(let i = 0; i < density; i++) {
 
 const out = document.querySelector('.js-out');
 
-const eventListener = mobile ? 'deviceorientation' : 'mousemove';
+const eventListener = (mobile) ? 'deviceorientation' : 'mousemove';
 
-document.addEventListener(eventListener , (ev) => {
+window.addEventListener(eventListener, (ev) => {
   sticks.forEach((stick) => {
-    const position       = stick.getAttribute('value');
-
-    const devicePosXValue = mobile ? ev.gamma : ev.pageX;
-    const devicePosYValue = mobile ? ev.beta  : ev.pageY;
-    const speedDivisor    = mobile ? 40 : 250;
+    const position        = stick.getAttribute('value');
+    
+    const devicePosXValue = (mobile) ? ev.gamma : ev.pageX;
+    const devicePosYValue = (mobile) ? ev.beta  : ev.pageY;
+    const speedDivisor    = (mobile) ? 40 : 250;
 
     out.textContent = `Beta: ${devicePosXValue}, Gamma: ${devicePosYValue}`
 
-    const x = (window.innerWidth - devicePosXValue * position) / speedDivisor;
+    const x = (window.innerWidth  - devicePosXValue * position) / speedDivisor;
     const y = (window.innerHeight - devicePosYValue * position) / speedDivisor;
 
     const elemDepthScale      = position / 10;
     const elemScale           = 2 + elemDepthScale;
-
-
 
     // Shamelessly Stolen from https://stackoverflow.com/questions/59882504/how-to-get-style-transform-rotate-value-in-javascript
     let angle = 0;
