@@ -9,7 +9,8 @@ function isMobile() {
 const Parallax = {
   iconElements: [],
   iconStick:      './svg/stick_smaller.svg',
-  iconSrc:     ['./svg/nonicons_collection/cat-svgrepo-com.svg',
+
+  iconSrc:      ['./svg/nonicons_collection/cat-svgrepo-com.svg',
                   './svg/nonicons_collection/css-16-svgrepo-com.svg',
                   './svg/nonicons_collection/gaming-pad-alt-1-svgrepo-com.svg',
                   './svg/nonicons_collection/html-16-svgrepo-com.svg',
@@ -18,7 +19,8 @@ const Parallax = {
                   './svg/nonicons_collection/prettier-16-svgrepo-com.svg',
                   './svg/nonicons_collection/python-16-svgrepo-com.svg',
                   './svg/nonicons_collection/vscode-16-svgrepo-com.svg'],
-  iconColors:    ['invert(40%) sepia(40%) saturate(4258%) hue-rotate(260deg) brightness(86%) contrast(90%)',
+
+  iconColors:   ['invert(40%) sepia(40%) saturate(4258%) hue-rotate(260deg) brightness(86%) contrast(90%)',
                   'invert(22%) sepia(53%) saturate(5062%) hue-rotate(337deg) brightness(109%) contrast(101%)',
                   'invert(80%) sepia(93%) saturate(933%) hue-rotate(78deg) brightness(118%) contrast(92%)',
                   'invert(48%) sepia(40%) saturate(5217%) hue-rotate(226deg) brightness(103%) contrast(102%)',
@@ -30,11 +32,6 @@ const Parallax = {
     return baseScale + value * depth;
   },
 };
-
-// sacale 0.079623
-//breit 1.053
-//hohe 10.053
-
 
 function getRandomSignedValue(range) {
   const randSign = Math.random() > 0.5 ? 1 : -1;

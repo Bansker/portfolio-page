@@ -6,10 +6,7 @@
   box-sizing: border-box;
   font-family: "Gabarito", sans-serif;
   font-optical-sizing: auto;
-  color: var(--col-text);
-  letter-spacing: 1px;
-  line-height: calc(26px + 0.390625vw);
-  overflow: hidden;
+  color: lightblue;
   /*   outline: 1px solid red; */
 }
 
@@ -24,22 +21,28 @@ COLORS
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   z-index: -100;
 }
 
 .main-wrapper {
   flex: 1;
   display: flex;
+  flex-direction: column;
   z-index: -35;
-  justify-content: center;
+  align-items: center;
   padding: 5px;
 }
 
-h1 {
-  font-size: 12vw;
-  line-height: 10vw;
-  overflow: visible;
-  color: lightblue;
+.main-wrapper--name {
+  font-size: calc(150px + 0.390625vw);
+  text-shadow: 0px 0px 50px black;
+}
+
+.main-wrapper--motto {
+  font-size: calc(50px + 0.390625vw);
+  font-weight: bold;
+  text-shadow: 0px 0px 50px black;
 }
 
 /* 
