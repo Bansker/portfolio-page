@@ -58,7 +58,7 @@ const windowWidth   = window.innerWidth;
 const windowHeight  = window.innerHeight;
 
 
-Parallax.iconDensity = mobile ? 25 : 75;
+Parallax.iconDensity = mobile ? 30 : 80;
 let iconCnt          = 0;
 let iconColorCnt     = 0;
 
