@@ -1,7 +1,3 @@
-
-
-
-
 function isMobile() {
   // const regex = /iphone|ipod|android|ie|blackberry|fennec/i
   // return regex.test(navigator.userAgent);
@@ -54,6 +50,7 @@ for(let i = 0; i < density; i++) {
 }
 
 
+const out = document.querySelector('.js-out');
 
 const eventListener = mobile ? 'deviceorientation' : 'mousemove';
 
@@ -63,9 +60,12 @@ document.addEventListener(eventListener , (ev) => {
 
     const devicePosXValue = mobile ? ev.gamma : ev.pageX;
     const devicePosYValue = mobile ? ev.beta  : ev.pageY;
+    const speedDivisor    = mobile ? 40 : 250;
 
-    const x = (window.innerWidth - devicePosXValue * position) / 250;
-    const y = (window.innerHeight - devicePosYValue * position) / 250;
+    out.textContent = `Beta: ${devicePosXValue}, Gamma: ${devicePosYValue}`
+
+    const x = (window.innerWidth - devicePosXValue * position) / speedDivisor;
+    const y = (window.innerHeight - devicePosYValue * position) / speedDivisor;
 
     const elemDepthScale      = position / 10;
     const elemScale           = 2 + elemDepthScale;
