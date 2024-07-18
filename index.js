@@ -18,7 +18,12 @@ const Parallax = {
                   './svg/nonicons_collection/prettier-16-svgrepo-com.svg',
                   './svg/nonicons_collection/python-16-svgrepo-com.svg',
                   './svg/nonicons_collection/vscode-16-svgrepo-com.svg'],
-  iconColor:    `invert(61%) sepia(46%) saturate(5056%) hue-rotate(2deg) brightness(102%) contrast(101%)`,
+  iconColors:    ['invert(40%) sepia(40%) saturate(4258%) hue-rotate(260deg) brightness(86%) contrast(90%)',
+                  'invert(22%) sepia(53%) saturate(5062%) hue-rotate(337deg) brightness(109%) contrast(101%)',
+                  'invert(80%) sepia(93%) saturate(933%) hue-rotate(78deg) brightness(118%) contrast(92%)',
+                  'invert(48%) sepia(40%) saturate(5217%) hue-rotate(226deg) brightness(103%) contrast(102%)',
+                  'invert(43%) sepia(93%) saturate(4262%) hue-rotate(356deg) brightness(100%) contrast(96%)',
+  ],
   iconDensity:  50,
 
   computeDepthScale(value, depth=0.01, baseScale=1) {
@@ -56,6 +61,7 @@ const windowHeight  = window.innerHeight;
 
 Parallax.iconDensity       = mobile ? 25 : 75;
 let iconCnt = 0;
+let iconColorCnt = 0;
 for(let i = 0; i < Parallax.iconDensity; i++) {
   const randAngle        = getRandomValue(360);
   const randPositionTop  = getRandomValue(100);
@@ -66,21 +72,21 @@ for(let i = 0; i < Parallax.iconDensity; i++) {
 
   Parallax.iconElements[i] = document.createElement('img');
   Parallax.iconElements[i].src = Parallax.iconSrc[iconCnt];
-
   Parallax.iconElements[i].setAttribute('data-pos-value', `${iconPositionalValue}`);
+
   Parallax.iconElements[i].style.position  = 'absolute';
   Parallax.iconElements[i].style.top       = `${randPositionTop}%`;
   Parallax.iconElements[i].style.left      = `${randPositionLeft}%`;
   Parallax.iconElements[i].style.transform = `rotate(${randAngle}deg) scale(${iconDepthScale})`;
-  Parallax.iconElements[i].style.filter    = `${Parallax.iconColor}`;
+  Parallax.iconElements[i].style.filter    = `${Parallax.iconColors[iconColorCnt]}`;
   
   plxWrapper.appendChild(Parallax.iconElements[i]);
 
-  
   iconCnt++;
-  if(iconCnt === Parallax.iconSrc.length) {
-    iconCnt = 0;
-  }
+  iconColorCnt++;
+
+  if(iconCnt === Parallax.iconSrc.length) iconCnt = 0;
+  if(iconColorCnt === Parallax.iconColors.length) iconColorCnt = 0;
 }
 
 
