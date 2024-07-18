@@ -18,6 +18,7 @@ function getRandomValue(range) {
 const mobile        = isMobile();
 const plxWrapper    = document.querySelector('.plx-wrapper');
 const density       = 200;
+
 const windowWidth   = window.innerWidth;
 const windowHeight  = window.innerHeight;
 
@@ -33,8 +34,8 @@ for(let i = 0; i < density; i++) {
   const randPositionLeft = getRandomValue(100);
 
   const elemPositionalValue = getRandomSignedValue(30);
-  const elemDepthScale      = elemPositionalValue / 10;
-  const elemScale           = 2 + elemDepthScale;
+  const elemDepthScale      = 2 + elemPositionalValue / 10;
+
 
   sticks[i] = document.createElement('img');
   sticks[i].src = stickSrc;
@@ -43,7 +44,7 @@ for(let i = 0; i < density; i++) {
   sticks[i].style.position  = 'absolute';
   sticks[i].style.top       = `${randPositionTop}%`;
   sticks[i].style.left      = `${randPositionLeft}%`;
-  sticks[i].style.transform = `rotate(${randAngle}deg) scale(${elemScale})`;
+  sticks[i].style.transform = `rotate(${randAngle}deg) scale(${elemDepthScale})`;
   sticks[i].style.filter    = `${stickColor}`;
   
   plxWrapper.appendChild(sticks[i]);
