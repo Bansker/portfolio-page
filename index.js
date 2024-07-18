@@ -1,3 +1,5 @@
+const out = document.querySelector('.js-out');
+
 function isMobile() {
   // const regex = /iphone|ipod|android|ie|blackberry|fennec/i
   // return regex.test(navigator.userAgent);
@@ -14,17 +16,23 @@ function getRandomValue(range) {
   return Math.floor(Math.random() * range);
 }
 
-function computeDepthScale(baseScale) {
+function computeDepthScale(value, depth=0.01, baseScale=1) {
+  return baseScale + value * depth;
+}
 
+function computeDepthScaleHelper(value){
+  return computeDepthScale(value, 0.07, 3);
 }
 
 
 const mobile        = isMobile();
 const plxWrapper    = document.querySelector('.plx-wrapper');
-const density       = 200;
+const density       = mobile ? 50 : 150;
 
 const windowWidth   = window.innerWidth;
 const windowHeight  = window.innerHeight;
+
+
 
 
 const stickSrc = './svg/stick_smaller.svg';
@@ -37,13 +45,12 @@ for(let i = 0; i < density; i++) {
   const randPositionLeft = getRandomValue(100);
 
   const elemPositionalValue = getRandomSignedValue(30);
-  const elemDepthScale      = 2 + elemPositionalValue / 10;
-
+  const elemDepthScale      = computeDepthScaleHelper(elemPositionalValue);
 
   sticks[i] = document.createElement('img');
   sticks[i].src = stickSrc;
 
-  sticks[i].setAttribute('value', `${elemPositionalValue}`);
+  sticks[i].setAttribute('data-pos-value', `${elemPositionalValue}`);
   sticks[i].style.position  = 'absolute';
   sticks[i].style.top       = `${randPositionTop}%`;
   sticks[i].style.left      = `${randPositionLeft}%`;
@@ -54,25 +61,23 @@ for(let i = 0; i < density; i++) {
 }
 
 
-const out = document.querySelector('.js-out');
+
 
 const eventListener = (mobile) ? 'deviceorientation' : 'mousemove';
 
 window.addEventListener(eventListener, (ev) => {
   sticks.forEach((stick) => {
-    const position        = stick.getAttribute('value');
+    const elemPositionalValue        = stick.getAttribute('data-pos-value');
     
     const devicePosXValue = (mobile) ? ev.gamma : ev.pageX;
     const devicePosYValue = (mobile) ? ev.beta  : ev.pageY;
     const speedDivisor    = (mobile) ? 40 : 250;
 
-    out.textContent = `Beta: ${devicePosXValue}, Gamma: ${devicePosYValue}`
+    const x = (window.innerWidth  - devicePosXValue * elemPositionalValue) / speedDivisor;
+    const y = (window.innerHeight - devicePosYValue * elemPositionalValue) / speedDivisor;
 
-    const x = (window.innerWidth  - devicePosXValue * position) / speedDivisor;
-    const y = (window.innerHeight - devicePosYValue * position) / speedDivisor;
-
-    const elemDepthScale      = position / 10;
-    const elemScale           = 2 + elemDepthScale;
+    const elemDepthScale      = elemPositionalValue / 10;
+    const elemScale           = computeDepthScaleHelper(elemPositionalValue)
 
     // Shamelessly Stolen from https://stackoverflow.com/questions/59882504/how-to-get-style-transform-rotate-value-in-javascript
     let angle = 0;
