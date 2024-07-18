@@ -6,6 +6,17 @@ function isMobile() {
   return /Mobi/i.test(window.navigator.userAgent)
 }
 
+const Parallax = {
+  iconElements: [],
+  iconSrc:      './svg/stick_smaller.svg',
+  iconColor:    `invert(61%) sepia(46%) saturate(5056%) hue-rotate(2deg) brightness(102%) contrast(101%)`,
+  iconDensity:  50,
+
+  computeDepthScale(value, depth=0.01, baseScale=1) {
+    return baseScale + value * depth;
+  },
+};
+
 function getRandomSignedValue(range) {
   const randSign = Math.random() > 0.5 ? 1 : -1;
   const randValue = Math.floor(Math.random() * range);
@@ -16,48 +27,39 @@ function getRandomValue(range) {
   return Math.floor(Math.random() * range);
 }
 
-function computeDepthScale(value, depth=0.01, baseScale=1) {
-  return baseScale + value * depth;
-}
-
 function computeDepthScaleHelper(value){
-  return computeDepthScale(value, 0.07, 3);
+  return Parallax.computeDepthScale(value, 0.07, 3);
 }
 
 
 const mobile        = isMobile();
 const plxWrapper    = document.querySelector('.plx-wrapper');
-const density       = mobile ? 50 : 150;
 
 const windowWidth   = window.innerWidth;
 const windowHeight  = window.innerHeight;
 
 
+Parallax.iconDensity       = mobile ? 50 : 150;
 
-
-const stickSrc = './svg/stick_smaller.svg';
-const stickColor = `invert(61%) sepia(46%) saturate(5056%) hue-rotate(2deg) brightness(102%) contrast(101%)`;
-
-let sticks = [];
-for(let i = 0; i < density; i++) {
+for(let i = 0; i < Parallax.iconDensity; i++) {
   const randAngle        = getRandomValue(360);
   const randPositionTop  = getRandomValue(100);
   const randPositionLeft = getRandomValue(100);
 
-  const elemPositionalValue = getRandomSignedValue(30);
-  const elemDepthScale      = computeDepthScaleHelper(elemPositionalValue);
+  const iconPositionalValue = getRandomSignedValue(30);
+  const iconDepthScale      = computeDepthScaleHelper(iconPositionalValue);
 
-  sticks[i] = document.createElement('img');
-  sticks[i].src = stickSrc;
+  Parallax.iconElements[i] = document.createElement('img');
+  Parallax.iconElements[i].src = Parallax.iconSrc;
 
-  sticks[i].setAttribute('data-pos-value', `${elemPositionalValue}`);
-  sticks[i].style.position  = 'absolute';
-  sticks[i].style.top       = `${randPositionTop}%`;
-  sticks[i].style.left      = `${randPositionLeft}%`;
-  sticks[i].style.transform = `rotate(${randAngle}deg) scale(${elemDepthScale})`;
-  sticks[i].style.filter    = `${stickColor}`;
+  Parallax.iconElements[i].setAttribute('data-pos-value', `${iconPositionalValue}`);
+  Parallax.iconElements[i].style.position  = 'absolute';
+  Parallax.iconElements[i].style.top       = `${randPositionTop}%`;
+  Parallax.iconElements[i].style.left      = `${randPositionLeft}%`;
+  Parallax.iconElements[i].style.transform = `rotate(${randAngle}deg) scale(${iconDepthScale})`;
+  Parallax.iconElements[i].style.filter    = `${Parallax.iconColor}`;
   
-  plxWrapper.appendChild(sticks[i]);
+  plxWrapper.appendChild(Parallax.iconElements[i]);
 }
 
 
@@ -66,29 +68,29 @@ for(let i = 0; i < density; i++) {
 const eventListener = (mobile) ? 'deviceorientation' : 'mousemove';
 
 window.addEventListener(eventListener, (ev) => {
-  sticks.forEach((stick) => {
-    const elemPositionalValue        = stick.getAttribute('data-pos-value');
+  Parallax.iconElements.forEach((icon) => {
+    const iconPositionalValue        = icon.getAttribute('data-pos-value');
     
     const devicePosXValue = (mobile) ? ev.gamma : ev.pageX;
     const devicePosYValue = (mobile) ? ev.beta  : ev.pageY;
     const speedDivisor    = (mobile) ? 40 : 250;
 
-    const x = (window.innerWidth  - devicePosXValue * elemPositionalValue) / speedDivisor;
-    const y = (window.innerHeight - devicePosYValue * elemPositionalValue) / speedDivisor;
+    const x = (window.innerWidth  - devicePosXValue * iconPositionalValue) / speedDivisor;
+    const y = (window.innerHeight - devicePosYValue * iconPositionalValue) / speedDivisor;
 
-    const elemDepthScale      = elemPositionalValue / 10;
-    const elemScale           = computeDepthScaleHelper(elemPositionalValue)
+    const iconDepthScale      = iconPositionalValue / 10;
+    const elemScale           = computeDepthScaleHelper(iconPositionalValue)
 
     // Shamelessly Stolen from https://stackoverflow.com/questions/59882504/how-to-get-style-transform-rotate-value-in-javascript
     let angle = 0;
-    const rotate = stick.style.transform.match(/rotate\((\d+)(.+)\)/);
+    const rotate = icon.style.transform.match(/rotate\((\d+)(.+)\)/);
     if (rotate) {
       let [num, unit] = rotate.slice(1);  // slice is needed since first element contains entire match
       //console.log('num:', num, 'unit:', unit);
       angle = num;
     }
 
-    stick.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg) scale(${elemScale})`;
+    icon.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg) scale(${elemScale})`;
 
   });
 });
