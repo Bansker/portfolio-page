@@ -51,7 +51,6 @@ function computeDepthScaleHelper(value){
 }
 
 
-
 const mobile        = isMobile();
 const plxWrapper    = document.querySelector('.plx-wrapper');
 
@@ -59,9 +58,10 @@ const windowWidth   = window.innerWidth;
 const windowHeight  = window.innerHeight;
 
 
-Parallax.iconDensity       = mobile ? 25 : 75;
-let iconCnt = 0;
-let iconColorCnt = 0;
+Parallax.iconDensity = mobile ? 25 : 75;
+let iconCnt          = 0;
+let iconColorCnt     = 0;
+
 for(let i = 0; i < Parallax.iconDensity; i++) {
   const randAngle        = getRandomValue(360);
   const randPositionTop  = getRandomValue(100);
@@ -69,6 +69,7 @@ for(let i = 0; i < Parallax.iconDensity; i++) {
 
   const iconPositionalValue = getRandomSignedValue(30);
   const iconDepthScale      = computeDepthScaleHelper(iconPositionalValue);
+  const zIndex = iconPositionalValue - 60;
 
   Parallax.iconElements[i] = document.createElement('img');
   Parallax.iconElements[i].src = Parallax.iconSrc[iconCnt];
@@ -79,6 +80,7 @@ for(let i = 0; i < Parallax.iconDensity; i++) {
   Parallax.iconElements[i].style.left      = `${randPositionLeft}%`;
   Parallax.iconElements[i].style.transform = `rotate(${randAngle}deg) scale(${iconDepthScale})`;
   Parallax.iconElements[i].style.filter    = `${Parallax.iconColors[iconColorCnt]}`;
+  Parallax.iconElements[i].style.zIndex    = `${zIndex}`;
   
   plxWrapper.appendChild(Parallax.iconElements[i]);
 
