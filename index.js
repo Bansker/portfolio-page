@@ -8,7 +8,16 @@ function isMobile() {
 
 const Parallax = {
   iconElements: [],
-  iconSrc:      './svg/stick_smaller.svg',
+  iconStick:      './svg/stick_smaller.svg',
+  iconSrc:     ['./svg/nonicons_collection/cat-svgrepo-com.svg',
+                  './svg/nonicons_collection/css-16-svgrepo-com.svg',
+                  './svg/nonicons_collection/gaming-pad-alt-1-svgrepo-com.svg',
+                  './svg/nonicons_collection/html-16-svgrepo-com.svg',
+                  './svg/nonicons_collection/javascript-16-svgrepo-com.svg',
+                  './svg/nonicons_collection/loading-16-svgrepo-com.svg',
+                  './svg/nonicons_collection/prettier-16-svgrepo-com.svg',
+                  './svg/nonicons_collection/python-16-svgrepo-com.svg',
+                  './svg/nonicons_collection/vscode-16-svgrepo-com.svg'],
   iconColor:    `invert(61%) sepia(46%) saturate(5056%) hue-rotate(2deg) brightness(102%) contrast(101%)`,
   iconDensity:  50,
 
@@ -16,6 +25,11 @@ const Parallax = {
     return baseScale + value * depth;
   },
 };
+
+// sacale 0.079623
+//breit 1.053
+//hohe 10.053
+
 
 function getRandomSignedValue(range) {
   const randSign = Math.random() > 0.5 ? 1 : -1;
@@ -32,6 +46,7 @@ function computeDepthScaleHelper(value){
 }
 
 
+
 const mobile        = isMobile();
 const plxWrapper    = document.querySelector('.plx-wrapper');
 
@@ -39,8 +54,8 @@ const windowWidth   = window.innerWidth;
 const windowHeight  = window.innerHeight;
 
 
-Parallax.iconDensity       = mobile ? 50 : 150;
-
+Parallax.iconDensity       = mobile ? 25 : 75;
+let iconCnt = 0;
 for(let i = 0; i < Parallax.iconDensity; i++) {
   const randAngle        = getRandomValue(360);
   const randPositionTop  = getRandomValue(100);
@@ -50,7 +65,7 @@ for(let i = 0; i < Parallax.iconDensity; i++) {
   const iconDepthScale      = computeDepthScaleHelper(iconPositionalValue);
 
   Parallax.iconElements[i] = document.createElement('img');
-  Parallax.iconElements[i].src = Parallax.iconSrc;
+  Parallax.iconElements[i].src = Parallax.iconSrc[iconCnt];
 
   Parallax.iconElements[i].setAttribute('data-pos-value', `${iconPositionalValue}`);
   Parallax.iconElements[i].style.position  = 'absolute';
@@ -60,6 +75,12 @@ for(let i = 0; i < Parallax.iconDensity; i++) {
   Parallax.iconElements[i].style.filter    = `${Parallax.iconColor}`;
   
   plxWrapper.appendChild(Parallax.iconElements[i]);
+
+  
+  iconCnt++;
+  if(iconCnt === Parallax.iconSrc.length) {
+    iconCnt = 0;
+  }
 }
 
 
