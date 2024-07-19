@@ -40,12 +40,12 @@ COLORS
   padding: 5vw;
 }
 .main-content--name {
-  font-size: 10vw;
+  font-size: calc(50px + 120 * (100vw - 320px) / 1600);
   text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.27);
 }
 
 .main-content--motto {
-  font-size: 4vw;
+  font-size: calc(25px + 50 * (100vw - 320px) / 1600);
   font-weight: bold;
   text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.27);
 }
@@ -63,4 +63,5 @@ COLORS
   max-width: 400px;
   min-width: 300px;
   border-radius: 0.8rem;
+  font-size: calc(16px + 12 * (100vw - 320px) / 1600);
 }/*# sourceMappingURL=style.css.map */

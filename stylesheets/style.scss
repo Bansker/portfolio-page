@@ -1,6 +1,7 @@
 @use './normalize.scss';
 @import './variables';
 
+
 .plx-wrapper { // Parallax Wrapper
   position: relative;
   width: 100%;
@@ -23,13 +24,13 @@
   
     padding: 5vw;
 
-    @at-root .main-content--name {
-      font-size: 10vw;
+    @at-root .main-content--name { 
+      @include fontSizeBig();
       text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.27);
     }
     
     @at-root .main-content--motto {
-      font-size: 4vw;
+      @include fontSizeMedium();
       font-weight: bold;
       text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.27);
     }
@@ -47,6 +48,7 @@
         max-width: 400px;
         min-width: 300px;
         border-radius: .8rem;
+        @include fontSizeSmall();
       }
 
       @at-root .btn-container--btn__more {
