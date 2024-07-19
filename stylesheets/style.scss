@@ -1,5 +1,6 @@
 @use './normalize.scss';
 @import './variables';
+@import './mixins';
 
 
 .plx-wrapper { // Parallax Wrapper
@@ -20,7 +21,11 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    height: 100vh;
     z-index: -35;
+    background: black;
+    background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 75%); 
   
     padding: 5vw;
 
