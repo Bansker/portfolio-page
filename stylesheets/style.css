@@ -21,6 +21,10 @@ button {
 /* 
 COLORS
 */
+@font-face {
+  font-family: fantasque-sans-regular;
+  src: url(../Webfonts/FantasqueSansMono-Regular.woff);
+}
 .plx-wrapper {
   position: relative;
   width: 100%;
