@@ -107,6 +107,8 @@ window.addEventListener(eventListener, (ev) => {
       devicePosYValue = ev.beta;
       speedDivisor = 40;
 
+      out.textContent = `Gamma: ${Math.round(devicePosXValue)}, Beta: ${Math.round(devicePosYValue)}`;
+
       if(devicePosXValue > 90)  devicePosXValue = 90;
       if(devicePosXValue < -90) devicePosXValue = -90;
       if(devicePosYValue > 90)  devicePosYValue = 90;
