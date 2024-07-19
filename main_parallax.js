@@ -97,9 +97,9 @@ window.addEventListener(eventListener, (ev) => {
   Parallax.iconElements.forEach((icon) => {
     const iconPositionalValue        = icon.getAttribute('data-pos-value');
     
-    //let devicePosXValue; //= (mobile) ? ev.gamma : ev.pageX;
-    //let devicePosYValue; //= (mobile) ? ev.beta  : ev.pageY;
-    //let speedDivisor;//  = (mobile) ? 40 : 250;
+    let devicePosXValue; //= (mobile) ? ev.gamma : ev.pageX;
+    let devicePosYValue; //= (mobile) ? ev.beta  : ev.pageY;
+    let speedDivisor;//  = (mobile) ? 40 : 250;
 
     // Constrain Sensor values to 180° range to prevent flicks on steep angles
     if(mobile) {
