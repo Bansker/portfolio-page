@@ -115,7 +115,7 @@ window.addEventListener(eventListener, (ev) => {
       if(ev.beta > 89)  devicePosYValue = 90;
       if(ev.gamma < -89) devicePosYValue = -90;
 
-      out.textContent = `Gamma: ${Math.round(devicePosXValue)}, Beta: ${Math.round(devicePosYValue)}`;
+      //out.textContent = `Gamma: ${Math.round(devicePosXValue)}, Beta: ${Math.round(devicePosYValue)}`;
 
     } else {
       devicePosXValue = ev.pageX;
