@@ -1,4 +1,5 @@
 const out = document.querySelector('.js-out');
+out.style.color = 'black';
 
 function isMobile() {
   // const regex = /iphone|ipod|android|ie|blackberry|fennec/i
@@ -103,16 +104,18 @@ window.addEventListener(eventListener, (ev) => {
 
     // Constrain Sensor values to 180° range to prevent flicks on steep angles
     if(mobile) {
-      devicePosXValue = ev.gamma;
-      devicePosYValue = ev.beta;
+      devicePosXValue = ev.gamma; // degree in the range -90, 90
+      devicePosYValue = ev.beta;  // degree in the range -180, 180
       speedDivisor = 40;
 
-      out.textContent = `Gamma: ${Math.round(devicePosXValue)}, Beta: ${Math.round(devicePosYValue)}`;
+      
 
-      if(devicePosXValue > 90)  devicePosXValue = 90;
+      if(devicePosXValue > 90)  devicePosXValue = 90; 
       if(devicePosXValue < -90) devicePosXValue = -90;
       if(devicePosYValue > 90)  devicePosYValue = 90;
       if(devicePosYValue < -90) devicePosYValue = -90;
+
+      out.textContent = `Gamma: ${Math.round(devicePosXValue)}, Beta: ${Math.round(devicePosYValue)}`;
 
     } else {
       devicePosXValue = ev.pageX;
