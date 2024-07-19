@@ -97,8 +97,8 @@ window.addEventListener(eventListener, (ev) => {
   Parallax.iconElements.forEach((icon) => {
     const iconPositionalValue        = icon.getAttribute('data-pos-value');
     
-    const devicePosXValue = (mobile) ? ev.gamma : ev.pageX;
-    const devicePosYValue = (mobile) ? ev.beta  : ev.pageY;
+    const devicePosXValue = (mobile) ? ev.beta  : ev.pageX;
+    const devicePosYValue = (mobile) ? ev.gamma : ev.pageY;
     const speedDivisor    = (mobile) ? 40 : 250;
 
     const x = (window.innerWidth  - devicePosXValue * iconPositionalValue) / speedDivisor;
