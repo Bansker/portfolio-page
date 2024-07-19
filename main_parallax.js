@@ -97,14 +97,30 @@ window.addEventListener(eventListener, (ev) => {
   Parallax.iconElements.forEach((icon) => {
     const iconPositionalValue        = icon.getAttribute('data-pos-value');
     
-    const devicePosXValue = (mobile) ? ev.gamma : ev.pageX;
-    const devicePosYValue = (mobile) ? ev.beta  : ev.pageY;
-    const speedDivisor    = (mobile) ? 40 : 250;
+    //let devicePosXValue; //= (mobile) ? ev.gamma : ev.pageX;
+    //let devicePosYValue; //= (mobile) ? ev.beta  : ev.pageY;
+    //let speedDivisor;//  = (mobile) ? 40 : 250;
+
+    // Constrain Sensor values to 180° range to prevent flicks on steep angles
+    if(mobile) {
+      devicePosXValue = ev.gamma;
+      devicePosYValue = ev.beta;
+      speedDivisor = 40;
+
+      if(devicePosXValue > 90)  devicePosXValue = 90;
+      if(devicePosXValue < -90) devicePosXValue = -90;
+      if(devicePosYValue > 90)  devicePosYValue = 90;
+      if(devicePosYValue < -90) devicePosYValue = -90;
+
+    } else {
+      devicePosXValue = ev.pageX;
+      devicePosYValue = ev.pageY;
+      speedDivisor = 250;
+    }
 
     const x = (window.innerWidth  - devicePosXValue * iconPositionalValue) / speedDivisor;
     const y = (window.innerHeight - devicePosYValue * iconPositionalValue) / speedDivisor;
 
-    const iconDepthScale      = iconPositionalValue / 10;
     const elemScale           = computeDepthScaleHelper(iconPositionalValue)
 
     // Shamelessly Stolen from https://stackoverflow.com/questions/59882504/how-to-get-style-transform-rotate-value-in-javascript
