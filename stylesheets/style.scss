@@ -14,8 +14,6 @@
 
   overflow: hidden;
 
-  //z-index: -100;
-
   @at-root .main-content {
     flex: 1;
     display: flex;
@@ -44,7 +42,7 @@
       flex-wrap: wrap;
       justify-content: stretch;
       margin-top: 50px;
-      gap: 20px;
+      gap: 30px;
 
       @at-root .btn-container--btn {
         flex: 1;
@@ -57,10 +55,18 @@
         background: transparent;
         color: white;
         outline: 2px solid white;
+
+        transition-duration: .2s;
+        transition-property: transform, background-color, color;
+
       }
 
       @at-root .btn-container--btn:hover {
         cursor: pointer;
+        transform: scale(1.03);
+        background-color: white;
+        color: $c-bg;
+        outline: 3px solid white;
       }
 
       @at-root .btn-container--btn__more {

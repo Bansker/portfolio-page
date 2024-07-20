@@ -158,12 +158,13 @@ for(let i = 0; i < Parallax.iconDensity; i++) {
   Parallax.iconElements[i].src = Parallax.iconSrc[iconCnt];
   Parallax.iconElements[i].setAttribute('data-pos-value', `${iconPositionalValue}`);
 
-  Parallax.iconElements[i].style.position  = 'absolute';
-  Parallax.iconElements[i].style.top       = `${randPositionTop}%`;
-  Parallax.iconElements[i].style.left      = `${randPositionLeft}%`;
-  Parallax.iconElements[i].style.transform = `rotate(${randAngle}deg) scale(${iconDepthScale})`;
-  Parallax.iconElements[i].style.filter    = `${Parallax.iconColors[iconColorCnt]}`;
-  Parallax.iconElements[i].style.zIndex    = `${zIndex}`;
+  Parallax.iconElements[i].style.position       = 'absolute';
+  Parallax.iconElements[i].style.top            = `${randPositionTop}%`;
+  Parallax.iconElements[i].style.left           = `${randPositionLeft}%`;
+  Parallax.iconElements[i].style.transform      = `rotate(${randAngle}deg) scale(${iconDepthScale})`;
+  Parallax.iconElements[i].style.filter         = `${Parallax.iconColors[iconColorCnt]}`;
+  Parallax.iconElements[i].style.zIndex         = `${zIndex}`;
+  Parallax.iconElements[i].style.pointerEvents  = 'none';
   
   plxWrapper.appendChild(Parallax.iconElements[i]);
 
