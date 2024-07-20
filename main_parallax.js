@@ -32,6 +32,14 @@ const Parallax = {
   computeDepthScale(value, depth=0.01, baseScale=1) {
     return baseScale + value * depth;
   },
+
+  handleOrientation(event) {
+
+  },
+
+  handleMousePos(event) {
+
+  },
 };
 
 function getRandomSignedValue(range) {
@@ -49,8 +57,8 @@ function computeDepthScaleHelper(value){
 }
 
 
-const mobile        = isMobile();
 const plxWrapper    = document.querySelector('.plx-wrapper');
+const mobile        = isMobile();
 
 const windowWidth   = window.innerWidth;
 const windowHeight  = window.innerHeight;
@@ -110,10 +118,10 @@ window.addEventListener(eventListener, (ev) => {
 
       
 
-      if(ev.beta > 90)  devicePosXValue = 90; 
-      if(ev.gamma < -90) devicePosXValue = -90;
-      if(ev.beta > 89)  devicePosYValue = 90;
-      if(ev.gamma < -89) devicePosYValue = -90;
+      if(ev.beta > 89)  devicePosXValue = 89; 
+      if(ev.gamma < -89) devicePosXValue = -89;
+      if(ev.beta > 89)  devicePosYValue = 89;
+      if(ev.gamma < -89) devicePosYValue = -89;
 
       //out.textContent = `Gamma: ${Math.round(devicePosXValue)}, Beta: ${Math.round(devicePosYValue)}`;
 
