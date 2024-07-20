@@ -33,12 +33,8 @@ const Parallax = {
     return baseScale + value * depth;
   },
 
-  handleOrientation(event) {
-
-  },
-
-  handleMousePos(event) {
-
+  computeDepthScaleHelper(value){
+    return this.computeDepthScale(value, 0.07, 3);
   },
 };
 
@@ -52,10 +48,69 @@ function getRandomValue(range) {
   return Math.floor(Math.random() * range);
 }
 
+
 function computeDepthScaleHelper(value){
   return Parallax.computeDepthScale(value, 0.07, 3);
 }
 
+function getElementRotation(element) {
+  let angle = 0;
+  const rotate = element.style.transform.match(/rotate\((\d+)(.+)\)/);
+
+  if (rotate) {
+    let [num, unit] = rotate.slice(1);  // slice is needed since first element contains entire match
+    //console.log('num:', num, 'unit:', unit);
+    angle = num;
+  }
+
+  return(angle);
+}
+
+
+function handleOrientation(event) {
+  Parallax.iconElements.forEach((icon) => {
+    const iconPositionalValue = icon.getAttribute('data-pos-value');
+    
+    let deviceOrientationX = event.gamma; // degree in the range -90, 90
+    let deviceOrientationY = event.beta;  // degree in the range -180, 180
+    let speedDivisor       = 40;
+
+    // Constrain Sensor values to 180° range to prevent flicks on steep angles
+    if(event.gamma > 89)  deviceOrientationX = 89; 
+    if(event.gamma < -89) deviceOrientationX = -89;
+    if(event.beta > 89)  deviceOrientationY = 89;
+    if(event.beta < -89) deviceOrientationY = -89;
+
+    //out.textContent = `Gamma: ${Math.round(deviceOrientationX)}, Beta: ${Math.round(deviceOrientationY)}`;
+
+    const x = (window.innerWidth  - deviceOrientationX * iconPositionalValue) / speedDivisor;
+    const y = (window.innerHeight - deviceOrientationY * iconPositionalValue) / speedDivisor;
+
+    const elemScale = computeDepthScaleHelper(iconPositionalValue)
+    const angle     = getElementRotation();
+    
+    icon.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg) scale(${elemScale})`;
+  });
+}
+
+
+function handleMousePos(event) {
+  Parallax.iconElements.forEach((icon) => {
+    const iconPositionalValue = icon.getAttribute('data-pos-value');
+    
+    let mousePosXValue = event.pageX;
+    let mousePosYValue = event.pageY;
+    let speedDivisor   = 250;
+
+    const x = (window.innerWidth  - mousePosXValue * iconPositionalValue) / speedDivisor;
+    const y = (window.innerHeight - mousePosYValue * iconPositionalValue) / speedDivisor;
+
+    const elemScale = computeDepthScaleHelper(iconPositionalValue)
+    const angle     = getElementRotation(icon)
+
+    icon.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg) scale(${elemScale})`;
+  });
+}
 
 const plxWrapper    = document.querySelector('.plx-wrapper');
 const mobile        = isMobile();
@@ -98,36 +153,65 @@ for(let i = 0; i < Parallax.iconDensity; i++) {
 }
 
 
+// Handle Mobile parallax movement with gyro sensors
+if(mobile) {
+  window.addEventListener('load', () => {
 
+    // Handle permission for iOS 13+ devices
+    if(typeof DeviceMotionEvent.requestPermission === 'function') {
+
+      DeviceMotionEvent.requestPermission()
+        .then((state) => {
+          if(state === 'granted') {
+            window.addEventListener('deviceorientation', Parallax.handleOrientation);
+          } else {
+            console.error('Request to access the orientation was rejected');
+          }
+        }).catch(console.error);
+
+    } else { // Handle regular non iPhone Mobiles
+      out.textContent = `on phone`;
+      window.addEventListener('deviceorientation', Parallax.handleOrientation);
+    }
+  });
+
+} else { // Handle Desktop parallax movement with cursor
+  window.addEventListener('mousemove', handleMousePos);
+}
+
+
+
+
+/* 
 
 const eventListener = (mobile) ? 'deviceorientation' : 'mousemove';
 
-window.addEventListener(eventListener, (ev) => {
+window.addEventListener(eventListener, (event) => {
   Parallax.iconElements.forEach((icon) => {
     const iconPositionalValue        = icon.getAttribute('data-pos-value');
     
-    let devicePosXValue; //= (mobile) ? ev.gamma : ev.pageX;
-    let devicePosYValue; //= (mobile) ? ev.beta  : ev.pageY;
+    let devicePosXValue; //= (mobile) ? event.gamma : event.pageX;
+    let devicePosYValue; //= (mobile) ? event.beta  : event.pageY;
     let speedDivisor;//  = (mobile) ? 40 : 250;
 
     // Constrain Sensor values to 180° range to prevent flicks on steep angles
     if(mobile) {
-      devicePosXValue = ev.gamma; // degree in the range -90, 90
-      devicePosYValue = ev.beta;  // degree in the range -180, 180
+      devicePosXValue = event.gamma; // degree in the range -90, 90
+      devicePosYValue = event.beta;  // degree in the range -180, 180
       speedDivisor = 40;
 
       
 
-      if(ev.beta > 89)  devicePosXValue = 89; 
-      if(ev.gamma < -89) devicePosXValue = -89;
-      if(ev.beta > 89)  devicePosYValue = 89;
-      if(ev.gamma < -89) devicePosYValue = -89;
+      if(event.beta > 89)  devicePosXValue = 89; 
+      if(event.gamma < -89) devicePosXValue = -89;
+      if(event.beta > 89)  devicePosYValue = 89;
+      if(event.gamma < -89) devicePosYValue = -89;
 
       //out.textContent = `Gamma: ${Math.round(devicePosXValue)}, Beta: ${Math.round(devicePosYValue)}`;
 
     } else {
-      devicePosXValue = ev.pageX;
-      devicePosYValue = ev.pageY;
+      devicePosXValue = event.pageX;
+      devicePosYValue = event.pageY;
       speedDivisor = 250;
     }
 
@@ -152,3 +236,4 @@ window.addEventListener(eventListener, (ev) => {
 
 
 
+ */
