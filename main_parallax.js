@@ -76,18 +76,17 @@ function handleOrientation(event) {
     let speedDivisor       = 40;
 
     // Constrain Sensor values to 180° range to prevent flicks on steep angles
-    if(event.gamma > 89)  deviceOrientationX = 89; 
+/*     if(event.gamma > 89)  deviceOrientationX = 89; 
     if(event.gamma < -89) deviceOrientationX = -89;
     if(event.beta > 89)  deviceOrientationY = 89;
-    if(event.beta < -89) deviceOrientationY = -89;
+    if(event.beta < -89) deviceOrientationY = -89; */
 
-    out.textContent = `Gamma: ${Math.round(deviceOrientationX)}, Beta: ${Math.round(deviceOrientationY)}`;
-
+    
     const x = (window.innerWidth  - deviceOrientationX * iconPositionalValue) / speedDivisor;
     const y = (window.innerHeight - deviceOrientationY * iconPositionalValue) / speedDivisor;
-
+    
     const elemScale = computeDepthScaleHelper(iconPositionalValue)
-    const angle     = getElementRotation();
+    const angle     = getElementRotation(icon);
     
     icon.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg) scale(${elemScale})`;
   });
@@ -162,15 +161,17 @@ if(mobile) {
 
       DeviceMotionEvent.requestPermission()
         .then((state) => {
+
           if(state === 'granted') {
             window.addEventListener('deviceorientation', handleOrientation);
+
           } else {
             console.error('Request to access the orientation was rejected');
           }
         }).catch(console.error);
-
+        
     } else { // Handle regular non iPhone Mobiles
-      out.textContent = `on phone test 2`;
+
       window.addEventListener('deviceorientation', handleOrientation);
     }
   });
