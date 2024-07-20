@@ -72,4 +72,7 @@ COLORS
   min-width: 300px;
   border-radius: 0.8rem;
   font-size: calc(16px + 12 * (100vw - 320px) / 1600);
+  background: transparent;
+  color: white;
+  outline: 2px solid white;
 }/*# sourceMappingURL=style.css.map */

@@ -58,6 +58,10 @@
         min-width: 300px;
         border-radius: .8rem;
         @include fontSizeSmall();
+
+        background: transparent;
+        color: white;
+        outline: 2px solid white;
       }
 
       @at-root .btn-container--btn__more {
