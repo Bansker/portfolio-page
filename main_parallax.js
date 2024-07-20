@@ -81,7 +81,7 @@ function handleOrientation(event) {
     if(event.beta > 89)  deviceOrientationY = 89;
     if(event.beta < -89) deviceOrientationY = -89;
 
-    //out.textContent = `Gamma: ${Math.round(deviceOrientationX)}, Beta: ${Math.round(deviceOrientationY)}`;
+    out.textContent = `Gamma: ${Math.round(deviceOrientationX)}, Beta: ${Math.round(deviceOrientationY)}`;
 
     const x = (window.innerWidth  - deviceOrientationX * iconPositionalValue) / speedDivisor;
     const y = (window.innerHeight - deviceOrientationY * iconPositionalValue) / speedDivisor;
@@ -170,7 +170,7 @@ if(mobile) {
         }).catch(console.error);
 
     } else { // Handle regular non iPhone Mobiles
-      out.textContent = `on phone`;
+      out.textContent = `on phone test 2`;
       window.addEventListener('deviceorientation', handleOrientation);
     }
   });
