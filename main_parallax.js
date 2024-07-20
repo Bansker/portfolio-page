@@ -163,7 +163,7 @@ if(mobile) {
       DeviceMotionEvent.requestPermission()
         .then((state) => {
           if(state === 'granted') {
-            window.addEventListener('deviceorientation', Parallax.handleOrientation);
+            window.addEventListener('deviceorientation', handleOrientation);
           } else {
             console.error('Request to access the orientation was rejected');
           }
@@ -171,7 +171,7 @@ if(mobile) {
 
     } else { // Handle regular non iPhone Mobiles
       out.textContent = `on phone`;
-      window.addEventListener('deviceorientation', Parallax.handleOrientation);
+      window.addEventListener('deviceorientation', handleOrientation);
     }
   });
 
