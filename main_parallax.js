@@ -76,10 +76,10 @@ function handleOrientation(event) {
     let speedDivisor       = 40;
 
     // Constrain Sensor values to 180° range to prevent flicks on steep angles
-/*     if(event.gamma > 89)  deviceOrientationX = 89; 
+    if(event.gamma > 89)  deviceOrientationX = 89; 
     if(event.gamma < -89) deviceOrientationX = -89;
     if(event.beta > 89)  deviceOrientationY = 89;
-    if(event.beta < -89) deviceOrientationY = -89; */
+    if(event.beta < -89) deviceOrientationY = -89;
 
     
     const x = (window.innerWidth  - deviceOrientationX * iconPositionalValue) / speedDivisor;
