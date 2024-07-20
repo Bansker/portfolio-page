@@ -67,6 +67,16 @@ function getElementRotation(element) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
 function handleOrientation(event) {
   Parallax.iconElements.forEach((icon) => {
     const iconPositionalValue = icon.getAttribute('data-pos-value');
@@ -111,6 +121,19 @@ function handleMousePos(event) {
   });
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 const plxWrapper    = document.querySelector('.plx-wrapper');
 const mobile        = isMobile();
 
@@ -129,7 +152,7 @@ for(let i = 0; i < Parallax.iconDensity; i++) {
 
   const iconPositionalValue = getRandomSignedValue(30);
   const iconDepthScale      = computeDepthScaleHelper(iconPositionalValue);
-  const zIndex = iconPositionalValue - 60;
+  const zIndex = iconPositionalValue + 60;
 
   Parallax.iconElements[i] = document.createElement('img');
   Parallax.iconElements[i].src = Parallax.iconSrc[iconCnt];
@@ -150,6 +173,21 @@ for(let i = 0; i < Parallax.iconDensity; i++) {
   if(iconCnt === Parallax.iconSrc.length) iconCnt = 0;
   if(iconColorCnt === Parallax.iconColors.length) iconColorCnt = 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Handle Mobile parallax movement with gyro sensors

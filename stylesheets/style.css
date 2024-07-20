@@ -21,10 +21,6 @@ button {
 /* 
 COLORS
 */
-@font-face {
-  font-family: fantasque-sans-regular;
-  src: url(../Webfonts/FantasqueSansMono-Regular.woff);
-}
 .plx-wrapper {
   position: relative;
   width: 100%;
@@ -34,7 +30,6 @@ COLORS
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  z-index: -100;
 }
 .main-content {
   flex: 1;
@@ -42,7 +37,7 @@ COLORS
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  z-index: -35;
+  z-index: 85;
   background: black;
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 75%);
   padding: 5vw;
@@ -75,4 +70,8 @@ COLORS
   background: transparent;
   color: white;
   outline: 2px solid white;
+}
+
+.btn-container--btn:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
