@@ -38,6 +38,16 @@ const Parallax = {
   },
 };
 
+
+
+
+
+
+
+
+
+
+
 function getRandomSignedValue(range) {
   const randSign = Math.random() > 0.5 ? 1 : -1;
   const randValue = Math.floor(Math.random() * range);
@@ -63,18 +73,8 @@ function getElementRotation(element) {
     angle = num;
   }
 
-  return(angle);
+  return angle;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 function handleOrientation(event) {
@@ -218,62 +218,3 @@ if(mobile) {
 } else { // Handle Desktop parallax movement with cursor
   window.addEventListener('mousemove', handleMousePos);
 }
-
-
-
-
-/* 
-
-const eventListener = (mobile) ? 'deviceorientation' : 'mousemove';
-
-window.addEventListener(eventListener, (event) => {
-  Parallax.iconElements.forEach((icon) => {
-    const iconPositionalValue        = icon.getAttribute('data-pos-value');
-    
-    let devicePosXValue; //= (mobile) ? event.gamma : event.pageX;
-    let devicePosYValue; //= (mobile) ? event.beta  : event.pageY;
-    let speedDivisor;//  = (mobile) ? 40 : 250;
-
-    // Constrain Sensor values to 180° range to prevent flicks on steep angles
-    if(mobile) {
-      devicePosXValue = event.gamma; // degree in the range -90, 90
-      devicePosYValue = event.beta;  // degree in the range -180, 180
-      speedDivisor = 40;
-
-      
-
-      if(event.beta > 89)  devicePosXValue = 89; 
-      if(event.gamma < -89) devicePosXValue = -89;
-      if(event.beta > 89)  devicePosYValue = 89;
-      if(event.gamma < -89) devicePosYValue = -89;
-
-      //out.textContent = `Gamma: ${Math.round(devicePosXValue)}, Beta: ${Math.round(devicePosYValue)}`;
-
-    } else {
-      devicePosXValue = event.pageX;
-      devicePosYValue = event.pageY;
-      speedDivisor = 250;
-    }
-
-    const x = (window.innerWidth  - devicePosXValue * iconPositionalValue) / speedDivisor;
-    const y = (window.innerHeight - devicePosYValue * iconPositionalValue) / speedDivisor;
-
-    const elemScale           = computeDepthScaleHelper(iconPositionalValue)
-
-    // Shamelessly Stolen from https://stackoverflow.com/questions/59882504/how-to-get-style-transform-rotate-value-in-javascript
-    let angle = 0;
-    const rotate = icon.style.transform.match(/rotate\((\d+)(.+)\)/);
-    if (rotate) {
-      let [num, unit] = rotate.slice(1);  // slice is needed since first element contains entire match
-      //console.log('num:', num, 'unit:', unit);
-      angle = num;
-    }
-
-    icon.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg) scale(${elemScale})`;
-
-  });
-});
-
-
-
- */
