@@ -1,3 +1,6 @@
+/* 
+COLORS
+*/
 *,
 *::after,
 *::before {
@@ -6,7 +9,7 @@
   box-sizing: border-box;
   font-family: "Gabarito", sans-serif;
   font-optical-sizing: auto;
-  color: lightblue;
+  color: #a9bfe3;
   /*   outline: 1px solid red; */
 }
 
@@ -22,14 +25,14 @@ button {
 COLORS
 */
 .plx-wrapper {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100vh;
-  background-color: #141e2e;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   overflow: hidden;
+  background-color: #141e2e;
 }
 .main-content {
   flex: 1;
@@ -37,14 +40,14 @@ COLORS
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+  padding: 5vw;
   z-index: 85;
   background: black;
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 75%);
-  padding: 5vw;
 }
 .main-content--name {
-  font-size: calc(50px + 120 * (100vw - 320px) / 1600);
   text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.27);
+  font-size: calc(50px + 120 * (100vw - 320px) / 1600);
 }
 
 .main-content--motto {
@@ -57,8 +60,8 @@ COLORS
   display: flex;
   flex-wrap: wrap;
   justify-content: stretch;
-  margin-top: 50px;
   gap: 30px;
+  margin-top: 50px;
 }
 .btn-container--btn {
   flex: 1;
@@ -66,18 +69,20 @@ COLORS
   max-width: 400px;
   min-width: 300px;
   border-radius: 0.8rem;
-  font-size: calc(16px + 12 * (100vw - 320px) / 1600);
-  background: transparent;
   color: white;
-  outline: 2px solid white;
+  border: 1px solid rgba(169, 191, 227, 0.3);
+  background: rgba(169, 191, 227, 0.19);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   transition-duration: 0.2s;
-  transition-property: transform, background-color, color;
+  transition-property: transform, color, background, border;
+  font-size: calc(16px + 12 * (100vw - 320px) / 1600);
 }
 
 .btn-container--btn:hover {
   cursor: pointer;
-  transform: scale(1.03);
-  background-color: white;
   color: #141e2e;
-  outline: 3px solid white;
+  border: 1px solid rgb(169, 191, 227);
+  transform: scale(1.03);
+  background: rgb(169, 191, 227);
 }/*# sourceMappingURL=style.css.map */

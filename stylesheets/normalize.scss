@@ -1,3 +1,5 @@
+@import './variables';
+
 *,
 *::after,
 *::before {
@@ -7,7 +9,7 @@
   font-family: "Gabarito", sans-serif;
   font-optical-sizing: auto;
 
-  color: lightblue;
+  color: $c-text;
 
 
   //letter-spacing: 1px;

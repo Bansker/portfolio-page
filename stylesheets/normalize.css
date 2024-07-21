@@ -1,3 +1,6 @@
+/* 
+COLORS
+*/
 *,
 *::after,
 *::before {
@@ -6,7 +9,7 @@
   box-sizing: border-box;
   font-family: "Gabarito", sans-serif;
   font-optical-sizing: auto;
-  color: lightblue;
+  color: #a9bfe3;
   /*   outline: 1px solid red; */
 }
 
