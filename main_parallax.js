@@ -182,7 +182,6 @@ if(mobile) {
 
         DeviceMotionEvent.requestPermission()
           .then((permissionState) => {
-
             if(permissionState === 'granted') {
               window.addEventListener('deviceorientation', handleOrientation);
 
@@ -196,6 +195,9 @@ if(mobile) {
         window.addEventListener('deviceorientation', handleOrientation);
       }
     });
+    
+  } else { // Handle any other mobile device
+    window.addEventListener('deviceorientation', handleOrientation);
   }
 
 } else { // Handle Desktop parallax movement with cursor
