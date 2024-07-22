@@ -1,3 +1,6 @@
+/* 
+COLORS
+*/
 *,
 *::after,
 *::before {
@@ -6,9 +9,14 @@
   box-sizing: border-box;
   font-family: "Gabarito", sans-serif;
   font-optical-sizing: auto;
-  color: var(--col-text);
-  letter-spacing: 1px;
-  line-height: calc(26px + 0.390625vw);
-  overflow: hidden;
+  color: #a9bfe3;
   /*   outline: 1px solid red; */
+}
+
+button {
+  border: none;
+  background-color: white;
+  color: black;
+  padding: 15px;
+  font-size: 2vw;
 }/*# sourceMappingURL=normalize.css.map */

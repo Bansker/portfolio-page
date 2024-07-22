@@ -3,5 +3,12 @@ COLORS
 */
 
 $c-accent: #FF8400;
-$c-bg: #1a2639;
+$c-bg: #141e2e;
 $c-bg-secondary: #3E4D70;
+$c-text: #a9bfe3;
+
+// Font scaling
+$min-size: 16px;
+$max-size: 28px;
+$min-vp-width: 320px;
+$max-vp-width: 1920px;

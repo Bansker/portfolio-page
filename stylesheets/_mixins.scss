@@ -1,0 +1,11 @@
+@mixin fontSizeBig() {
+  font-size: calc(50px + (170 - 50) * ((100vw - $min-vp-width) / (1920 - 320)));
+}
+
+@mixin fontSizeMedium() {
+  font-size: calc(25px + (75 - 25) * ((100vw - $min-vp-width) / (1920 - 320)));
+}
+
+@mixin fontSizeSmall() {
+  font-size: calc(16px + (28 - 16) * ((100vw - $min-vp-width) / (1920 - 320)));  
+}

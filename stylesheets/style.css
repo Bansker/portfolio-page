@@ -1,3 +1,6 @@
+/* 
+COLORS
+*/
 *,
 *::after,
 *::before {
@@ -6,45 +9,80 @@
   box-sizing: border-box;
   font-family: "Gabarito", sans-serif;
   font-optical-sizing: auto;
-  color: var(--col-text);
-  letter-spacing: 1px;
-  line-height: calc(26px + 0.390625vw);
-  overflow: hidden;
+  color: #a9bfe3;
   /*   outline: 1px solid red; */
+}
+
+button {
+  border: none;
+  background-color: white;
+  color: black;
+  padding: 15px;
+  font-size: 2vw;
 }
 
 /* 
 COLORS
 */
 .plx-wrapper {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100vh;
-  background-color: #1a2639;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: -100;
+  position: relative;
+  overflow: hidden;
+  background-color: #141e2e;
 }
-
-.main-wrapper {
+.main-content {
   flex: 1;
   display: flex;
-  z-index: -35;
+  flex-direction: column;
   justify-content: center;
-  padding: 5px;
+  height: 100vh;
+  padding: 5vw;
+  z-index: 85;
+  background: black;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 75%);
+}
+.main-content--name {
+  text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.27);
+  font-size: calc(50px + 120 * (100vw - 320px) / 1600);
 }
 
-h1 {
-  font-size: 12vw;
-  line-height: 10vw;
-  overflow: visible;
-  color: lightblue;
+.main-content--motto {
+  font-size: calc(25px + 50 * (100vw - 320px) / 1600);
+  font-weight: bold;
+  text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.27);
 }
 
-/* 
---fsize-h1: calc(30px + 0.390625vw);
---fsize-h2: calc(25px + 0.390625vw);
---fsize-p: calc(15px + 0.390625vw);
---fsize-btn: calc(19px + 0.390625vw);
- *//*# sourceMappingURL=style.css.map */
+.main-content--btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  gap: 30px;
+  margin-top: 50px;
+}
+.btn-container--btn {
+  flex: 1;
+  padding: 30px 15px;
+  max-width: 400px;
+  min-width: 300px;
+  border-radius: 0.8rem;
+  color: #a9bfe3;
+  border: 1px solid rgba(169, 191, 227, 0.3);
+  background: rgba(169, 191, 227, 0.19);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition-duration: 0.2s;
+  transition-property: transform, color, background, border;
+  font-size: calc(16px + 12 * (100vw - 320px) / 1600);
+}
+
+.btn-container--btn:hover {
+  cursor: pointer;
+  color: #141e2e;
+  border: 1px solid rgb(169, 191, 227);
+  transform: scale(1.03);
+  background: rgb(169, 191, 227);
+}/*# sourceMappingURL=style.css.map */
