@@ -13,6 +13,10 @@ COLORS
   /*   outline: 1px solid red; */
 }
 
+body {
+  z-index: -100;
+}
+
 button {
   border: none;
   background-color: white;
@@ -41,7 +45,7 @@ COLORS
   justify-content: center;
   height: 100vh;
   padding: 5vw;
-  z-index: 85;
+  z-index: 100;
   background: black;
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 75%);
 }

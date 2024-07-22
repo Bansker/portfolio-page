@@ -152,7 +152,7 @@ for(let i = 0; i < Parallax.iconDensity; i++) {
 
   const iconPositionalValue = getRandomSignedValue(30);
   const iconDepthScale      = computeDepthScaleHelper(iconPositionalValue);
-  const zIndex = iconPositionalValue + 60;
+  const zIndex = iconPositionalValue + 30; // shift the icons from range -130.. -70 to -100.. -40
 
   Parallax.iconElements[i] = document.createElement('img');
   Parallax.iconElements[i].src = Parallax.iconSrc[iconCnt];
