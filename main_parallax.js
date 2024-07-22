@@ -173,10 +173,11 @@ if(mobile) {
     const permissionDialog = document.querySelector('.modal-ios-permission');
     const permissionBtn    = document.querySelector('.modal-permission-btn');
 
-    permissionDialog.style.display = 'block';
+    permissionDialog.style.display = 'block'; // Show the permission dialog
 
     permissionBtn.addEventListener('click', () => {
-      permissionDialog.style.display = 'none';
+      permissionDialog.style.display = 'none'; // hide permission dialog after button press
+
       // Handle permission for iOS 13+ devices
       if(typeof DeviceMotionEvent.requestPermission === 'function') {
 
@@ -191,11 +192,10 @@ if(mobile) {
           }).catch(console.error);
           
       } else { // Handle lower iOS versions
-
         window.addEventListener('deviceorientation', handleOrientation);
       }
     });
-    
+
   } else { // Handle any other mobile device
     window.addEventListener('deviceorientation', handleOrientation);
   }
