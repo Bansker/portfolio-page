@@ -1,11 +1,8 @@
 const out = document.querySelector('.js-out');
 out.style.color = 'black';
 
-function isMobile() {
-  // const regex = /iphone|ipod|android|ie|blackberry|fennec/i
-  // return regex.test(navigator.userAgent);
-  return /Mobi/i.test(window.navigator.userAgent)
-}
+
+
 
 const Parallax = {
   iconElements: [],
@@ -40,11 +37,15 @@ const Parallax = {
 
 
 
+function isMobile() {
+  // const regex = /iphone|ipod|android|ie|blackberry|fennec/i
+  // return regex.test(navigator.userAgent);
+  return /Mobi/i.test(window.navigator.userAgent)
+}
 
-
-
-
-
+function isIOS() {
+  return /iPad|iPhone|iPod/i.test(window.navigator.userAgent)
+}
 
 
 
@@ -122,57 +123,85 @@ function handleMousePos(event) {
 }
 
 
+function initBackground(){
+  const plxWrapper    = document.querySelector('.plx-wrapper');
+
+  Parallax.iconDensity = mobile ? 30 : 80;
+  let iconCnt          = 0;
+  let iconColorCnt     = 0;
+
+  for(let i = 0; i < Parallax.iconDensity; i++) {
+    const randAngle        = getRandomValue(360);
+    const randPositionTop  = getRandomValue(100);
+    const randPositionLeft = getRandomValue(100);
+
+    const iconPositionalValue = getRandomSignedValue(30);
+    const iconDepthScale      = computeDepthScaleHelper(iconPositionalValue);
+    const zIndex = iconPositionalValue + 30; // shift the icons from range -130.. -70 to -100.. -40
+
+    Parallax.iconElements[i] = document.createElement('img');
+    Parallax.iconElements[i].src = Parallax.iconSrc[iconCnt];
+    Parallax.iconElements[i].setAttribute('data-pos-value', `${iconPositionalValue}`);
+
+    Parallax.iconElements[i].style.position       = 'absolute';
+    Parallax.iconElements[i].style.top            = `${randPositionTop}%`;
+    Parallax.iconElements[i].style.left           = `${randPositionLeft}%`;
+    Parallax.iconElements[i].style.transform      = `rotate(${randAngle}deg) scale(${iconDepthScale})`;
+    Parallax.iconElements[i].style.filter         = `${Parallax.iconColors[iconColorCnt]}`;
+    Parallax.iconElements[i].style.zIndex         = `${zIndex}`;
+    Parallax.iconElements[i].style.pointerEvents  = 'none';
+    
+    plxWrapper.appendChild(Parallax.iconElements[i]);
+
+    iconCnt++;
+    iconColorCnt++;
+
+    if(iconCnt === Parallax.iconSrc.length) iconCnt = 0;
+    if(iconColorCnt === Parallax.iconColors.length) iconColorCnt = 0;
+  }
+}
 
 
 
+const mobile = isMobile();
+const ios    = isIOS();
 
+initBackground();
 
+if(mobile) {
+  if(ios) {
+    const permissionDialog = document.querySelector('.modal-ios-permission');
+    const permissionBtn    = document.querySelector('.modal-permission-btn');
 
+    permissionDialog.style.display = 'block'; // Show the permission dialog
 
+    permissionBtn.addEventListener('click', () => {
+      permissionDialog.style.display = 'none'; // hide permission dialog after button press
 
+      // Handle permission for iOS 13+ devices
+      if(typeof DeviceMotionEvent.requestPermission === 'function') {
 
+        DeviceMotionEvent.requestPermission()
+          .then((permissionState) => {
+            if(permissionState === 'granted') {
+              window.addEventListener('deviceorientation', handleOrientation);
 
+            } else {
+              console.error('Request to access the orientation was rejected');
+            }
+          }).catch(console.error);
+          
+      } else { // Handle lower iOS versions
+        window.addEventListener('deviceorientation', handleOrientation);
+      }
+    });
 
+  } else { // Handle any other mobile device
+    window.addEventListener('deviceorientation', handleOrientation);
+  }
 
-const plxWrapper    = document.querySelector('.plx-wrapper');
-const mobile        = isMobile();
-
-const windowWidth   = window.innerWidth;
-const windowHeight  = window.innerHeight;
-
-
-Parallax.iconDensity = mobile ? 30 : 80;
-let iconCnt          = 0;
-let iconColorCnt     = 0;
-
-for(let i = 0; i < Parallax.iconDensity; i++) {
-  const randAngle        = getRandomValue(360);
-  const randPositionTop  = getRandomValue(100);
-  const randPositionLeft = getRandomValue(100);
-
-  const iconPositionalValue = getRandomSignedValue(30);
-  const iconDepthScale      = computeDepthScaleHelper(iconPositionalValue);
-  const zIndex = iconPositionalValue + 60;
-
-  Parallax.iconElements[i] = document.createElement('img');
-  Parallax.iconElements[i].src = Parallax.iconSrc[iconCnt];
-  Parallax.iconElements[i].setAttribute('data-pos-value', `${iconPositionalValue}`);
-
-  Parallax.iconElements[i].style.position       = 'absolute';
-  Parallax.iconElements[i].style.top            = `${randPositionTop}%`;
-  Parallax.iconElements[i].style.left           = `${randPositionLeft}%`;
-  Parallax.iconElements[i].style.transform      = `rotate(${randAngle}deg) scale(${iconDepthScale})`;
-  Parallax.iconElements[i].style.filter         = `${Parallax.iconColors[iconColorCnt]}`;
-  Parallax.iconElements[i].style.zIndex         = `${zIndex}`;
-  Parallax.iconElements[i].style.pointerEvents  = 'none';
-  
-  plxWrapper.appendChild(Parallax.iconElements[i]);
-
-  iconCnt++;
-  iconColorCnt++;
-
-  if(iconCnt === Parallax.iconSrc.length) iconCnt = 0;
-  if(iconColorCnt === Parallax.iconColors.length) iconColorCnt = 0;
+} else { // Handle Desktop parallax movement with cursor
+  window.addEventListener('mousemove', handleMousePos);
 }
 
 
@@ -184,12 +213,7 @@ for(let i = 0; i < Parallax.iconDensity; i++) {
 
 
 
-
-
-
-
-
-
+/* 
 
 // Handle Mobile parallax movement with gyro sensors
 if(mobile) {
@@ -218,3 +242,4 @@ if(mobile) {
 } else { // Handle Desktop parallax movement with cursor
   window.addEventListener('mousemove', handleMousePos);
 }
+ */

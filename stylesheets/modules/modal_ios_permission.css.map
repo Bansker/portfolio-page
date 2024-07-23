@@ -1,0 +1,1 @@
+{"version":3,"sources":["../_variables.scss","modal_ios_permission.scss","modal_ios_permission.css","../_mixins.scss"],"names":[],"mappings":"AAAA;;CAAA;ACKA;EACE,eAAA;EACA,aAAA;EACA,YAAA;EACA,MAAA;EACA,OAAA;EACA,WAAA;EACA,6BAAA;ACDF;;ADIA;EACE,aAAA;EACA,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,uBAAA;EACA,YAAA;ACDF;;ADIA;EEfE,mDAAA;EFiBA,gBAAA;ACDF","file":"modal_ios_permission.css"}

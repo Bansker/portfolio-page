@@ -1,0 +1,28 @@
+@import '../variables';
+@import '../mixins';
+
+
+
+.modal-ios-permission {
+  position: fixed;
+  display: none;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid grey;
+}
+
+.modal-ios-permission--content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+
+.modal-permission-btn {
+  @include fontSizeSmall();
+  margin-top: 10px;
+}

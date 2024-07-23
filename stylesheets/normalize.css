@@ -13,6 +13,10 @@ COLORS
   /*   outline: 1px solid red; */
 }
 
+body {
+  z-index: -100;
+}
+
 button {
   border: none;
   background-color: white;

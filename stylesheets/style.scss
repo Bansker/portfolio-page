@@ -1,4 +1,5 @@
 @use './normalize.scss';
+@use './modules/modal_ios_permission.scss';
 @import './variables';
 @import './mixins';
 
@@ -22,7 +23,7 @@
 
     height : 100vh;
     padding: 5vw;
-    z-index: 85;
+    z-index: 100; // relative from body z-index (-100), main content is on index -45
 
     background: black;
     background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 75%); 
