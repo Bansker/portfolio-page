@@ -23,6 +23,16 @@ const Parallax = {
   ],
   iconDensity:  50,
 
+  getRandomValue(range) {
+    return Math.floor(Math.random() * range);
+  },
+
+  getRandomSignedValue(range) {
+    const randSign = Math.random() > 0.5 ? 1 : -1;
+    const randValue = Math.floor(Math.random() * range);
+    return randValue * randSign
+  },
+
   computeDepthScale(value, depth=0.01, baseScale=1) {
     return baseScale + value * depth;
   },
@@ -30,6 +40,45 @@ const Parallax = {
   computeDepthScaleHelper(value){
     return this.computeDepthScale(value, 0.07, 3);
   },
+
+  initBackground(){
+    const plxWrapper    = document.querySelector('.plx-wrapper');
+  
+    this.iconDensity = mobile ? 30 : 80;
+    let iconCnt      = 0;
+    let iconColorCnt = 0;
+  
+    for(let i = 0; i < Parallax.iconDensity; i++) {
+      const randAngle        = this.getRandomValue(360);
+      const randPositionTop  = this.getRandomValue(100);
+      const randPositionLeft = this.getRandomValue(100);
+  
+      const iconPositionalValue = this.getRandomSignedValue(30);
+      const iconDepthScale      = this.computeDepthScaleHelper(iconPositionalValue);
+      const zIndex = iconPositionalValue + 30; // shift the icons from range -130.. -70 to -100.. -40
+  
+      this.iconElements[i] = document.createElement('img');
+      this.iconElements[i].src = Parallax.iconSrc[iconCnt];
+      this.iconElements[i].setAttribute('data-pos-value', `${iconPositionalValue}`);
+  
+      this.iconElements[i].style.position       = 'absolute';
+      this.iconElements[i].style.top            = `${randPositionTop}%`;
+      this.iconElements[i].style.left           = `${randPositionLeft}%`;
+      this.iconElements[i].style.transform      = `rotate(${randAngle}deg) scale(${iconDepthScale})`;
+      this.iconElements[i].style.filter         = `${this.iconColors[iconColorCnt]}`;
+      this.iconElements[i].style.zIndex         = `${zIndex}`;
+      this.iconElements[i].style.pointerEvents  = 'none';
+      
+      plxWrapper.appendChild(Parallax.iconElements[i]);
+  
+      iconCnt++;
+      iconColorCnt++;
+  
+      if(iconCnt === this.iconSrc.length) iconCnt = 0;
+      if(iconColorCnt === this.iconColors.length) iconColorCnt = 0;
+    }
+  },
+
 };
 
 
@@ -42,23 +91,6 @@ function isMobile() {
 
 function isIOS() {
   return /iPad|iPhone|iPod/i.test(window.navigator.userAgent)
-}
-
-
-
-function getRandomSignedValue(range) {
-  const randSign = Math.random() > 0.5 ? 1 : -1;
-  const randValue = Math.floor(Math.random() * range);
-  return randValue * randSign
-}
-
-function getRandomValue(range) {
-  return Math.floor(Math.random() * range);
-}
-
-
-function computeDepthScaleHelper(value){
-  return Parallax.computeDepthScale(value, 0.07, 3);
 }
 
 function getElementRotation(element) {
@@ -93,7 +125,7 @@ function handleOrientation(event) {
     const x = (window.innerWidth  - deviceOrientationX * iconPositionalValue) / speedDivisor;
     const y = (window.innerHeight - deviceOrientationY * iconPositionalValue) / speedDivisor;
     
-    const elemScale = computeDepthScaleHelper(iconPositionalValue)
+    const elemScale = Parallax.computeDepthScaleHelper(iconPositionalValue)
     const angle     = getElementRotation(icon);
     
     icon.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg) scale(${elemScale})`;
@@ -112,7 +144,7 @@ function handleMousePos(event) {
     const x = (window.innerWidth  - mousePosXValue * iconPositionalValue) / speedDivisor;
     const y = (window.innerHeight - mousePosYValue * iconPositionalValue) / speedDivisor;
 
-    const elemScale = computeDepthScaleHelper(iconPositionalValue)
+    const elemScale = Parallax.computeDepthScaleHelper(iconPositionalValue)
     const angle     = getElementRotation(icon)
 
     icon.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg) scale(${elemScale})`;
@@ -120,50 +152,10 @@ function handleMousePos(event) {
 }
 
 
-function initBackground(){
-  const plxWrapper    = document.querySelector('.plx-wrapper');
-
-  Parallax.iconDensity = mobile ? 30 : 80;
-  let iconCnt          = 0;
-  let iconColorCnt     = 0;
-
-  for(let i = 0; i < Parallax.iconDensity; i++) {
-    const randAngle        = getRandomValue(360);
-    const randPositionTop  = getRandomValue(100);
-    const randPositionLeft = getRandomValue(100);
-
-    const iconPositionalValue = getRandomSignedValue(30);
-    const iconDepthScale      = computeDepthScaleHelper(iconPositionalValue);
-    const zIndex = iconPositionalValue + 30; // shift the icons from range -130.. -70 to -100.. -40
-
-    Parallax.iconElements[i] = document.createElement('img');
-    Parallax.iconElements[i].src = Parallax.iconSrc[iconCnt];
-    Parallax.iconElements[i].setAttribute('data-pos-value', `${iconPositionalValue}`);
-
-    Parallax.iconElements[i].style.position       = 'absolute';
-    Parallax.iconElements[i].style.top            = `${randPositionTop}%`;
-    Parallax.iconElements[i].style.left           = `${randPositionLeft}%`;
-    Parallax.iconElements[i].style.transform      = `rotate(${randAngle}deg) scale(${iconDepthScale})`;
-    Parallax.iconElements[i].style.filter         = `${Parallax.iconColors[iconColorCnt]}`;
-    Parallax.iconElements[i].style.zIndex         = `${zIndex}`;
-    Parallax.iconElements[i].style.pointerEvents  = 'none';
-    
-    plxWrapper.appendChild(Parallax.iconElements[i]);
-
-    iconCnt++;
-    iconColorCnt++;
-
-    if(iconCnt === Parallax.iconSrc.length) iconCnt = 0;
-    if(iconColorCnt === Parallax.iconColors.length) iconColorCnt = 0;
-  }
-}
-
-
-
 const mobile = isMobile();
 const ios    = isIOS();
 
-initBackground();
+Parallax.initBackground();
 
 if(mobile) {
   if(ios) {
@@ -203,40 +195,3 @@ if(mobile) {
 
 
 
-
-
-
-
-
-
-
-/* 
-
-// Handle Mobile parallax movement with gyro sensors
-if(mobile) {
-  window.addEventListener('load', () => {
-
-    // Handle permission for iOS 13+ devices
-    if(typeof DeviceMotionEvent.requestPermission === 'function') {
-
-      DeviceMotionEvent.requestPermission()
-        .then((state) => {
-
-          if(state === 'granted') {
-            window.addEventListener('deviceorientation', handleOrientation);
-
-          } else {
-            console.error('Request to access the orientation was rejected');
-          }
-        }).catch(console.error);
-        
-    } else { // Handle regular non iPhone Mobiles
-
-      window.addEventListener('deviceorientation', handleOrientation);
-    }
-  });
-
-} else { // Handle Desktop parallax movement with cursor
-  window.addEventListener('mousemove', handleMousePos);
-}
- */
