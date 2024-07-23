@@ -13,9 +13,9 @@
   position: relative;
   overflow: hidden;
   
-  background-color: $c-bg;
+  background-color: $c-bg-hero;
 
-  @at-root .main-content {
+  @at-root .hero-content {
     flex           : 1;
     display        : flex;
     flex-direction : column;
@@ -26,21 +26,24 @@
     z-index: 100; // relative from body z-index (-100), main content is on index -45
 
     background: black;
-    background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 75%); 
+    @include cornerGradientTransparent($c-bg-gradient, 75%);
+/*     background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 75%), 
+                linear-gradient(0deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 75%); */
+
   
 
-    @at-root .main-content--name { 
+    @at-root .hero-content--name { 
       text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.27);
       @include fontSizeBig();
     }
     
-    @at-root .main-content--motto {
+    @at-root .hero-content--motto {
       @include fontSizeMedium();
       font-weight: bold;
       text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.27);
     }
     
-    @at-root .main-content--btn-container {
+    @at-root .hero-content--btn-container {
       display        : flex;
       flex-wrap      : wrap;
       justify-content: stretch;
@@ -70,7 +73,7 @@
       @at-root .btn-container--btn:hover {
         cursor    : pointer;
 
-        color     : $c-bg;
+        color     : $c-bg-hero;
         border    : 1px solid rgb(169, 191, 227, 1);
         transform : scale(1.03);
         background: rgb(169, 191, 227, 1);
@@ -86,4 +89,11 @@
       }
     }
   }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: $c-bg-main;
 }

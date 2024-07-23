@@ -65,7 +65,7 @@ COLORS
   overflow: hidden;
   background-color: #141e2e;
 }
-.main-content {
+.hero-content {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -74,20 +74,22 @@ COLORS
   padding: 5vw;
   z-index: 100;
   background: black;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 75%);
+  background: linear-gradient(90deg, rgb(12, 19, 29) 0%, rgba(0, 0, 0, 0) 75%), linear-gradient(0deg, rgb(12, 19, 29) 0%, rgba(0, 0, 0, 0) 75%);
+  /*     background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 75%), 
+                  linear-gradient(0deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 75%); */
 }
-.main-content--name {
+.hero-content--name {
   text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.27);
   font-size: calc(50px + 120 * (100vw - 320px) / 1600);
 }
 
-.main-content--motto {
+.hero-content--motto {
   font-size: calc(25px + 50 * (100vw - 320px) / 1600);
   font-weight: bold;
   text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.27);
 }
 
-.main-content--btn-container {
+.hero-content--btn-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: stretch;
@@ -116,4 +118,11 @@ COLORS
   border: 1px solid rgb(169, 191, 227);
   transform: scale(1.03);
   background: rgb(169, 191, 227);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #0c131d;
 }/*# sourceMappingURL=style.css.map */

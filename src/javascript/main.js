@@ -1,6 +1,3 @@
-const out = document.querySelector('.js-out');
-out.style.color = 'black';
-
 const Parallax = {
   iconElements: [],
   iconStick:      './svg/stick_smaller.svg',

@@ -9,3 +9,8 @@
 @mixin fontSizeSmall() {
   font-size: calc(16px + (28 - 16) * ((100vw - $min-vp-width) / (1920 - 320)));  
 }
+
+@mixin cornerGradientTransparent($RGBAcolor, $intensity) {
+  background: linear-gradient(90deg, $RGBAcolor 0%, rgba(0,0,0,0) $intensity), 
+              linear-gradient(0deg, $RGBAcolor 0%, rgba(0,0,0,0) $intensity);
+}
