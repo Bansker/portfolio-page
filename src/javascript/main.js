@@ -109,17 +109,21 @@ function getElementRotation(element) {
 function handleOrientation(event) {
   Parallax.iconElements.forEach((icon) => {
     const iconPositionalValue = icon.getAttribute('data-pos-value');
-    
-    let deviceOrientationX = event.gamma; // degree in the range -90, 90
-    let deviceOrientationY = event.beta;  // degree in the range -180, 180
+
+    let deviceOrientationX = 0; // degree in the range -90, 90
+    let deviceOrientationY = 0;  // degree in the range -180, 180
     let speedDivisor       = 40;
+
+    if(window.scrollY < 10) {
+      deviceOrientationX = event.gamma; // degree in the range -90, 90
+      deviceOrientationY = event.beta;  // degree in the range -180, 180
+    }
 
     // Constrain Sensor values to 180° range to prevent flicks on steep angles
     if(event.gamma > 89)  deviceOrientationX = 89; 
     if(event.gamma < -89) deviceOrientationX = -89;
     if(event.beta > 89)  deviceOrientationY = 89;
     if(event.beta < -89) deviceOrientationY = -89;
-
     
     const x = (window.innerWidth  - deviceOrientationX * iconPositionalValue) / speedDivisor;
     const y = (window.innerHeight - deviceOrientationY * iconPositionalValue) / speedDivisor;
@@ -127,7 +131,10 @@ function handleOrientation(event) {
     const elemScale = Parallax.computeDepthScaleHelper(iconPositionalValue)
     const angle     = getElementRotation(icon);
     
-    icon.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg) scale(${elemScale})`;
+    console.log(window.scrollY);
+    if(window.scrollY < 10) {
+      icon.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg) scale(${elemScale})`;
+    }
   });
 }
 
@@ -147,6 +154,7 @@ function handleMousePos(event) {
     const angle     = getElementRotation(icon)
 
     icon.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg) scale(${elemScale})`;
+    
   });
 }
 
