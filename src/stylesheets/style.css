@@ -161,6 +161,9 @@ COLORS
 .tab input:checked + .tab--label div:last-of-type {
   transform: rotate(270deg);
 }
+.tab label:hover {
+  cursor: pointer;
+}
 .tab--label {
   display: flex;
   justify-content: space-between;

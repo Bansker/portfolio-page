@@ -101,9 +101,6 @@
     display: flex;
     justify-content: center;
 
-
-
-
     @at-root .accordion {
       flex: 1;
       display: flex;
@@ -113,8 +110,6 @@
       min-width: 300px;
       gap: 20px;
       margin: 20px;
-
-
 
       @at-root .tab {
         flex: 1;
@@ -128,23 +123,32 @@
         & input {
           display: none;
         }
+        
+        
 
         & input:checked ~ .tab--content {
           max-height: 10rem;
         }
 
-        & input:checked + .tab--label div:last-of-type{
+        & input:checked + .tab--label div:last-of-type {
           transform: rotate(270deg);
         }
 
+        & label:hover {
+          cursor: pointer;
+        }
+        
         @at-root .tab--label {
           display: flex;
           justify-content: space-between;
           align-content: center;
 
+          
+
           & div {
             align-content: center;
           }
+
           & div:last-of-type{
             transform: rotate(90deg);
             transition: .2s all
