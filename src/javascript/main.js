@@ -1,4 +1,6 @@
-const Parallax = {
+import {Parallax, isMobile, isIOS} from './module/m_parallax.js';
+
+/* const Parallax = {
   iconElements: [],
   iconStick:      './svg/stick_smaller.svg',
 
@@ -76,19 +78,19 @@ const Parallax = {
     }
   },
 
-};
+}; */
 
 
 
-function isMobile() {
+/* function isMobile() {
   // const regex = /iphone|ipod|android|ie|blackberry|fennec/i
   // return regex.test(navigator.userAgent);
   return /Mobi/i.test(window.navigator.userAgent)
-}
+} */
 
-function isIOS() {
+/* function isIOS() {
   return /iPad|iPhone|iPod/i.test(window.navigator.userAgent)
-}
+} */
 
 function getElementRotation(element) {
   let angle = 0;
