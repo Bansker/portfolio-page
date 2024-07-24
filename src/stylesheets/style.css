@@ -17,6 +17,16 @@ body {
   z-index: -100;
 }
 
+footer {
+  background-color: black;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+footer > p {
+  color: #a9bfe3;
+}
+
 button {
   border: none;
   background-color: white;
