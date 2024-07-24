@@ -140,14 +140,13 @@ COLORS
   flex: 1;
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 900px;
+  min-width: 300px;
   gap: 20px;
   margin: 20px;
 }
 .tab {
   flex: 1;
-  max-width: 600px;
-  min-width: 300px;
   padding: 20px;
   border-radius: 0.5rem;
   background-color: rgb(57, 83, 113);
@@ -159,6 +158,22 @@ COLORS
 .tab input:checked ~ .tab--content {
   max-height: 10rem;
 }
+.tab input:checked + .tab--label div:last-of-type {
+  transform: rotate(270deg);
+}
+.tab--label {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.tab--label div {
+  align-content: center;
+}
+.tab--label div:last-of-type {
+  transform: rotate(90deg);
+  transition: 0.2s all;
+}
+
 .tab--content {
   max-height: 0;
   overflow: hidden;
