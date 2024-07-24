@@ -25,12 +25,8 @@
     padding: 5vw;
     z-index: 100; // relative from body z-index (-100), main content is on index -45
 
-    background: black;
-    @include cornerGradientTransparent($c-bg-gradient, 75%);
-/*     background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 75%), 
-                linear-gradient(0deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 75%); */
+    @include cornerGradientTransparent($c-bg-gradient, 65%);
 
-  
 
     @at-root .hero-content--name { 
       text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.27);
@@ -91,9 +87,62 @@
   }
 }
 
+
+
+
 .main {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  //height: 100vh;
+
   background-color: $c-bg-main;
+
+  @at-root .main--cv-wrapper {
+    display: flex;
+    justify-content: center;
+
+
+
+
+    @at-root .accordion {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      max-width: 600px;
+      gap: 20px;
+      margin: 20px;
+
+
+
+      @at-root .tab {
+        flex: 1;
+        max-width: 600px;
+        min-width: 300px;
+        padding: 20px;
+        border-radius: .5rem;
+
+        background-color: rgb(57, 83, 113);
+        color           : $c-text;
+  
+        & input {
+          display: none;
+        }
+
+        & input:checked ~ .tab--content {
+          max-height: 10rem;
+        }
+
+        @at-root .tab--content {
+          max-height: 0;
+          overflow  : hidden;
+          transition: all 0.35s;
+
+          & ul {
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+  }
 }
