@@ -1,5 +1,3 @@
-@import './variables';
-
 *,
 *::after,
 *::before {
@@ -8,16 +6,8 @@
   box-sizing: border-box;
   font-family: "Gabarito", sans-serif;
   font-optical-sizing: auto;
-
-  color: $c-text;
-
-
-  //letter-spacing: 1px;
-  //line-height: calc(26px + 0.390625vw);
-
-  //overflow: hidden;
-
-/*   outline: 1px solid red; */
+  color: #a9bfe3;
+  /*   outline: 1px solid red; */
 }
 
 body {
@@ -29,12 +19,9 @@ footer {
   padding: 20px 0;
   display: flex;
   justify-content: center;
-
-
-  & > p {
-    color: $c-text;
-  }
-
+}
+footer > p {
+  color: #a9bfe3;
 }
 
 button {
@@ -43,4 +30,4 @@ button {
   color: black;
   padding: 15px;
   font-size: 2vw;
-}
+}/*# sourceMappingURL=normalize.css.map */

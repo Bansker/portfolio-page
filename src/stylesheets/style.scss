@@ -1,7 +1,10 @@
-@use './normalize.scss';
+@use './modules/normalize.scss';
 @use './modules/modal_ios_permission.scss';
-@import './variables';
-@import './mixins';
+
+@import './resources/variables/colors';
+@import './resources/variables/layout_values';
+@import './resources/mixins';
+
 
 .plx-wrapper { // Parallax Wrapper
   display        : flex;

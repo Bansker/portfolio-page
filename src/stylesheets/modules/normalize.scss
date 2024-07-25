@@ -1,6 +1,9 @@
-/* 
-COLORS
-*/
+@import '../resources/variables/colors';
+@import '../resources/variables/layout_values';
+@import '../resources/mixins';
+
+
+
 *,
 *::after,
 *::before {
@@ -9,8 +12,16 @@ COLORS
   box-sizing: border-box;
   font-family: "Gabarito", sans-serif;
   font-optical-sizing: auto;
-  color: #a9bfe3;
-  /*   outline: 1px solid red; */
+
+  color: $c-text;
+
+
+  //letter-spacing: 1px;
+  //line-height: calc(26px + 0.390625vw);
+
+  //overflow: hidden;
+
+/*   outline: 1px solid red; */
 }
 
 body {
@@ -22,9 +33,12 @@ footer {
   padding: 20px 0;
   display: flex;
   justify-content: center;
-}
-footer > p {
-  color: #a9bfe3;
+
+
+  & > p {
+    color: $c-text;
+  }
+
 }
 
 button {
@@ -33,4 +47,4 @@ button {
   color: black;
   padding: 15px;
   font-size: 2vw;
-}/*# sourceMappingURL=normalize.css.map */
+}
