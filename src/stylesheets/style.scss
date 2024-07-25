@@ -123,13 +123,13 @@
         background-color: rgb(57, 83, 113);
         background-color: $c-bg-hero;
         color           : $c-text;
-        border: 1px solid rgba(169, 191, 227, .5);
+        border          : 1px solid rgba(169, 191, 227, .5);
 
         transition: .2s box-shadow;
 
         &:has(input:checked) {
           //background: linear-gradient(180deg, rgba(20,30,46,1) 0%, rgba(32,49,74,1) 60%);
-          box-shadow: 0px 0px 18px -4px rgba(169, 191, 227, .5);
+          box-shadow: 0px 0px 12px -4px rgba(169, 191, 227, .5);
         }
   
         & input {
@@ -139,7 +139,8 @@
         
 
         & input:checked ~ .tab--content {
-          max-height: 10rem;
+          max-height: 100vh;
+          overflow-y: scroll;
         }
 
         & input:checked + .tab--label div:last-of-type {
@@ -154,8 +155,7 @@
           display: flex;
           justify-content: space-between;
           align-content: center;
-
-          
+          color: #17dfb4;
 
           & div {
             align-content: center;
@@ -174,6 +174,11 @@
 
           & ul {
             margin-top: 20px;
+            margin-left: 20px;
+
+            & li:not(:first-of-type) {
+              margin-top: 6px;
+            }
           }
         }
       }
