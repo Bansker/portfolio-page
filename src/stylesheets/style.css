@@ -231,6 +231,9 @@ h2.section-subtitle {
   overflow: hidden;
   transition: all 0.35s;
 }
+.tab--content * {
+  font-size: calc(14px + 6 * (100vw - 320px) / 1600);
+}
 .tab--content ul {
   margin-top: 20px;
   margin-left: 20px;

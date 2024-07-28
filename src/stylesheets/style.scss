@@ -199,6 +199,10 @@
           overflow  : hidden;
           transition: all 0.35s;
 
+          & * {
+            @include fontSizeCustom($secondary-font-size-min, $secondary-font-size-max);
+          }
+
           & ul {
             margin-top : $global-spacing;
             margin-left: $global-spacing;
