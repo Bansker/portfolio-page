@@ -33,11 +33,11 @@
 
     @at-root .hero-content--name { 
       text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.27);
-      @include fontSizeBig();
+      @include fontSizeBig;
     }
     
     @at-root .hero-content--motto {
-      @include fontSizeMedium();
+      @include fontSizeMedium;
       font-weight: bold;
       text-shadow: 0px 0px 45px rgba(255, 255, 255, 0.27);
     }
@@ -68,7 +68,7 @@
         transition-duration: .2s;
         transition-property: transform, color, background, border;
         
-        @include fontSizeSmall();
+        @include fontSizeSmall;
       }
 
       @at-root .btn-container--btn:hover {
@@ -79,15 +79,6 @@
         transform : scale(1.03);
         background: rgb(169, 191, 227, 1);
       }
-
-      // maybe, these button will get separate styles, im not sure right now
-      @at-root .btn-container--btn__more {
-
-      }
-
-      @at-root .btn-container--btn__cv {
-
-      }
     }
   }
 }
@@ -95,20 +86,50 @@
 
 
 
+
+
+
+
 .main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include defaultFlexColumn;
   padding: $global-spacing;
 
   background-color: $c-bg-main;
 
+  @at-root .aboutme {
+    flex     : 1;
+    max-width: $main-content-width;
+    @include defaultFlexColumn;
+
+    @at-root .aboutme--img {
+      flex         : 1;
+      margin-top   : $global-spacing;
+      max-width    : 250px;
+      height       : auto;
+      border-radius: 50%;
+    }
+
+    @at-root .lead-text {
+      flex: 1;
+      margin-top: 40px;
+      @include fontSizeCustom($default-font-size-min, $default-font-size-max);
+
+      & p:not(:first-of-type) {
+        margin-top: 1rem;
+      }
+    }
+  }
+
   @at-root .main--cv-wrapper {
     display       : flex;
     flex-direction: column;
-    max-width     : 900px;
+    max-width     : $main-content-width;
 
-    & h2.section-subtitle {
+    @at-root h1.section-title{
+      margin-top: $global-spacing * 2;
+    }
+
+    @at-root h2.section-subtitle {
       margin-top: $global-spacing;
     }
 

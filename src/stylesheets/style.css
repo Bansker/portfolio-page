@@ -34,7 +34,6 @@ button {
   background-color: white;
   color: black;
   padding: 15px;
-  font-size: 2vw;
 }
 
 /* 
@@ -140,14 +139,43 @@ button {
   padding: 20px;
   background-color: #0c131d;
 }
+.aboutme {
+  flex: 1;
+  max-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.aboutme--img {
+  flex: 1;
+  margin-top: 20px;
+  max-width: 250px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.lead-text {
+  flex: 1;
+  margin-top: 40px;
+  font-size: calc(16px + 6 * (100vw - 320px) / 1600);
+}
+.lead-text p:not(:first-of-type) {
+  margin-top: 1rem;
+}
+
 .main--cv-wrapper {
   display: flex;
   flex-direction: column;
-  max-width: 900px;
+  max-width: 50rem;
 }
-.main--cv-wrapper h2.section-subtitle {
+h1.section-title {
+  margin-top: 40px;
+}
+
+h2.section-subtitle {
   margin-top: 20px;
 }
+
 .accordion {
   flex: 1;
   display: flex;

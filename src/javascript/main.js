@@ -108,3 +108,17 @@ if(mobile) {
 } else { // Handle Desktop parallax movement with cursor
   window.addEventListener('mousemove', handleMousePos);
 }
+
+
+const btnMore = document.querySelector(".js-btn-more");
+const btnCV   = document.querySelector(".js-btn-cv");
+
+
+
+btnMore.addEventListener('click', () => {
+  window.location.href='#welcome';
+});
+
+btnCV.addEventListener('click', () => {
+  window.location.href='#cv';
+});
