@@ -1,3 +1,8 @@
+/* 
+  TEXT SCALING
+  Dynamic size calculation formula:
+  calc(min-font + (max_font - min_font) * (100vw - min_screen) / (max_screen - min_screen))
+*/
 *,
 *::after,
 *::before {
@@ -32,6 +37,11 @@ button {
   font-size: 2vw;
 }
 
+/* 
+  TEXT SCALING
+  Dynamic size calculation formula:
+  calc(min-font + (max_font - min_font) * (100vw - min_screen) / (max_screen - min_screen))
+*/
 .modal-ios-permission {
   position: fixed;
   display: none;
@@ -56,6 +66,11 @@ button {
   margin-top: 10px;
 }
 
+/* 
+  TEXT SCALING
+  Dynamic size calculation formula:
+  calc(min-font + (max_font - min_font) * (100vw - min_screen) / (max_screen - min_screen))
+*/
 .plx-wrapper {
   display: flex;
   align-items: center;
@@ -121,20 +136,24 @@ button {
 .main {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 20px;
   background-color: #0c131d;
 }
 .main--cv-wrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  max-width: 900px;
+}
+.main--cv-wrapper h2.section-subtitle {
+  margin-top: 20px;
 }
 .accordion {
   flex: 1;
   display: flex;
   flex-direction: column;
-  max-width: 900px;
-  min-width: 300px;
   gap: 20px;
-  margin: 20px;
+  margin-top: 20px;
 }
 .tab {
   flex: 1;
@@ -170,13 +189,13 @@ button {
 .tab--label div {
   align-content: center;
 }
+.tab--label > div p {
+  font-size: calc(16px + 6 * (100vw - 320px) / 1600);
+}
 .tab--label div:last-of-type {
   margin-left: 20px;
   transform: rotate(90deg);
   transition: 0.2s all;
-}
-.tab--label > div p {
-  font-size: 20px;
 }
 
 .tab--content {
@@ -187,6 +206,9 @@ button {
 .tab--content ul {
   margin-top: 20px;
   margin-left: 20px;
+}
+.tab--content ul li {
+  font-size: calc(14px + 6 * (100vw - 320px) / 1600);
 }
 .tab--content ul li:not(:first-of-type) {
   margin-top: 6px;

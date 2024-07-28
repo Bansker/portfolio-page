@@ -1,3 +1,8 @@
+/* 
+  TEXT SCALING
+  Dynamic size calculation formula:
+  calc(min-font + (max_font - min_font) * (100vw - min_screen) / (max_screen - min_screen))
+*/
 .modal-ios-permission {
   position: fixed;
   display: none;

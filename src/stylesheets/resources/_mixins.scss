@@ -1,13 +1,23 @@
+/* 
+  TEXT SCALING
+  Dynamic size calculation formula:
+  calc(min-font + (max_font - min_font) * (100vw - min_screen) / (max_screen - min_screen))
+*/
+
 @mixin fontSizeBig() {
-  font-size: calc(50px + (170 - 50) * ((100vw - $min-vp-width) / (1920 - 320)));
+  font-size: calc(50px + (170 - 50) * ((100vw - 320px) / (1920 - 320)));
 }
 
 @mixin fontSizeMedium() {
-  font-size: calc(25px + (75 - 25) * ((100vw - $min-vp-width) / (1920 - 320)));
+  font-size: calc(25px + (75 - 25) * ((100vw - 320px) / (1920 - 320)));
 }
 
 @mixin fontSizeSmall() {
-  font-size: calc(16px + (28 - 16) * ((100vw - $min-vp-width) / (1920 - 320)));  
+  font-size: calc(16px + (28 - 16) * ((100vw - 320px) / (1920 - 320)));  
+}
+
+@mixin fontSizeCustom($min-size, $max-size) {
+  font-size: calc($min-size * 1px + ($max-size - $min-size) * ((100vw - 320px) / (1920 - 320)));  
 }
 
 @mixin cornerGradientTransparent($RGBAcolor, $intensity) {

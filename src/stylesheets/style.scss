@@ -60,8 +60,10 @@
         color          : $c-text;
         border         : 1px solid rgb(169, 191, 227, 0.3);
         background     : rgb(169, 191, 227, 0.19);
-        backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
+
+        $blur          : 5px;
+        backdrop-filter: blur($blur);
+-webkit-backdrop-filter: blur($blur);
         
         transition-duration: .2s;
         transition-property: transform, color, background, border;
@@ -96,27 +98,31 @@
 .main {
   display: flex;
   flex-direction: column;
-  //height: 100vh;
+  align-items: center;
+  padding: $global-spacing;
 
   background-color: $c-bg-main;
 
   @at-root .main--cv-wrapper {
-    display: flex;
-    justify-content: center;
+    display       : flex;
+    flex-direction: column;
+    max-width     : 900px;
+
+    & h2.section-subtitle {
+      margin-top: $global-spacing;
+    }
 
     @at-root .accordion {
-      flex: 1;
-      display: flex;
+      flex          : 1;
+      display       : flex;
       flex-direction: column;
 
-      max-width: 900px;
-      min-width: 300px;
-      gap      : 20px;
-      margin   : 20px;
+      gap       : $global-spacing;
+      margin-top: $global-spacing;
 
       @at-root .tab {
         flex         : 1;
-        padding      : 20px;
+        padding      : $global-spacing;
         border-radius: .5rem;
 
         background-color: rgb(57, 83, 113);
@@ -130,11 +136,11 @@
           box-shadow: 0px 0px 12px -4px rgba(169, 191, 227, .5);
         }
   
-        & input {
+        & input { // Hide Checkbox
           display: none;
         }
 
-        & input:checked ~ .tab--content {
+        & input:checked ~ .tab--content { // display content when input is checked
           max-height: 100vh;
           overflow-y: scroll;
         }
@@ -152,18 +158,18 @@
           justify-content: space-between;
           align-content  : center;
 
-          & div {
+          & div { // Label date and Title container
             align-content: center;
           }
 
-          & div:last-of-type{
-            margin-left: 20px;
-            transform  : rotate(90deg);
-            transition : .2s all;
+          & > div p { // Selects Label text Title and Date
+            @include fontSizeCustom($default-font-size-min, $default-font-size-max);
           }
 
-          & > div p {
-            font-size: 20px;
+          & div:last-of-type{ // Selects Arrow container indicating open/closed state
+            margin-left: $global-spacing;
+            transform  : rotate(90deg);
+            transition : .2s all;
           }
         }
 
@@ -173,8 +179,12 @@
           transition: all 0.35s;
 
           & ul {
-            margin-top : 20px;
-            margin-left: 20px;
+            margin-top : $global-spacing;
+            margin-left: $global-spacing;
+            
+            & li {
+              @include fontSizeCustom($secondary-font-size-min, $secondary-font-size-max);
+            }
 
             & li:not(:first-of-type) {
               margin-top: 6px;
