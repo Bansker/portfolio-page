@@ -6,6 +6,39 @@
 @import './resources/mixins';
 
 
+.__text-red {
+  color: $c-reef-red;
+}
+
+.__text-cyan {
+  color: $c-neat-cyan;
+}
+
+.__text-purple {
+  color: $c-becca-purple;
+}
+
+.__text-orange {
+  color: $c-carrot;
+}
+
+
+.__border-red {
+  border-color: $c-reef-red;
+}
+
+.__border-cyan {
+  border-color: $c-neat-cyan;
+}
+
+.__border-purple {
+  border: 1px solid $c-becca-purple;
+}
+
+.__border-orange {
+  border-color: $c-carrot;
+}
+
 .plx-wrapper { // Parallax Wrapper
   display        : flex;
   align-items    : center;
@@ -146,7 +179,6 @@
         padding      : $global-spacing;
         border-radius: .5rem;
 
-        background-color: rgb(57, 83, 113);
         background-color: $c-bg-hero;
         color           : $c-text;
         border          : 1px solid rgba(169, 191, 227, .5);
@@ -212,7 +244,7 @@
             }
 
             & li:not(:first-of-type) {
-              margin-top: 6px;
+              margin-top: 9px;
             }
           }
         }

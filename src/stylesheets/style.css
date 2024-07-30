@@ -19,7 +19,7 @@ body {
   z-index: -100;
 }
 
-p {
+p, ul, li {
   line-height: 1.5em;
 }
 
@@ -74,6 +74,38 @@ button {
   Dynamic size calculation formula:
   calc(min-font + (max_font - min_font) * (100vw - min_screen) / (max_screen - min_screen))
 */
+.__text-red {
+  color: #d42846;
+}
+
+.__text-cyan {
+  color: #16f5c4;
+}
+
+.__text-purple {
+  color: #8c70fe;
+}
+
+.__text-orange {
+  color: #fa590f;
+}
+
+.__border-red {
+  border-color: #d42846;
+}
+
+.__border-cyan {
+  border-color: #16f5c4;
+}
+
+.__border-purple {
+  border: 1px solid #8c70fe;
+}
+
+.__border-orange {
+  border-color: #fa590f;
+}
+
 .plx-wrapper {
   display: flex;
   align-items: center;
@@ -191,7 +223,6 @@ h2.section-subtitle {
   flex: 1;
   padding: 20px;
   border-radius: 0.5rem;
-  background-color: rgb(57, 83, 113);
   background-color: #141e2e;
   color: #a9bfe3;
   border: 1px solid rgba(169, 191, 227, 0.5);
@@ -246,5 +277,5 @@ h2.section-subtitle {
   font-size: calc(14px + 6 * (100vw - 320px) / 1600);
 }
 .tab--content ul li:not(:first-of-type) {
-  margin-top: 6px;
+  margin-top: 9px;
 }/*# sourceMappingURL=style.css.map */
