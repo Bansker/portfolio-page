@@ -134,12 +134,17 @@
     max-width: $main-content-width;
     @include defaultFlexColumn;
 
-    @at-root .aboutme--img {
+    @at-root .img-container {
       flex         : 1;
       margin-top   : $global-spacing;
       max-width    : 250px;
-      height       : auto;
-      border-radius: 50%;
+      /* height       : auto; */
+      & img {
+        width: 100%;
+        /* height: auto; */
+        object-fit: cover;
+        border-radius: 50%;
+      }
     }
 
     @at-root .lead-text {

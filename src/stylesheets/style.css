@@ -182,11 +182,17 @@ button {
   flex-direction: column;
   align-items: center;
 }
-.aboutme--img {
+.img-container {
   flex: 1;
   margin-top: 20px;
   max-width: 250px;
-  height: auto;
+  /* height       : auto; */
+}
+.img-container img {
+  width: 100%;
+  /* height: auto; */
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
 }
 
