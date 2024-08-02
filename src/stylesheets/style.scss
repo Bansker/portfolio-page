@@ -205,8 +205,8 @@
         }
 
         & input:checked + .tab--label div:last-of-type {
-          //transform: rotate(270deg);
-          transform: rotate(180deg);
+          transform: rotate(270deg);
+          //transform: rotate(180deg);
         }
 
         & label:hover {
@@ -228,8 +228,8 @@
           }
 
           & div:last-of-type{ // Selects Arrow container indicating open/closed state
-            margin-left: $global-spacing;
-            //transform  : rotate(90deg);
+            padding: 5px;
+            transform  : rotate(90deg);
             transition : .2s all;
           }
         }
@@ -256,7 +256,7 @@
             }
           }
 
-          &.__not-foldabe *{
+          &.__not-foldabe * {
             @include fontSizeCustom($default-font-size-min, $default-font-size-max);
           }
         }

@@ -249,7 +249,7 @@ h2.section-subtitle {
   overflow-y: scroll;
 }
 .tab input:checked + .tab--label div:last-of-type {
-  transform: rotate(180deg);
+  transform: rotate(270deg);
 }
 .tab label:hover {
   cursor: pointer;
@@ -267,7 +267,8 @@ h2.section-subtitle {
   font-size: calc(16px + 6 * (100vw - 320px) / 1600);
 }
 .tab--label div:last-of-type {
-  margin-left: 20px;
+  padding: 5px;
+  transform: rotate(90deg);
   transition: 0.2s all;
 }
 
