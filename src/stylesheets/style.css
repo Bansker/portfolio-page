@@ -288,4 +288,7 @@ h2.section-subtitle {
 }
 .tab--content ul li:not(:first-of-type) {
   margin-top: 9px;
+}
+.tab--content.__not-foldabe * {
+  font-size: calc(16px + 6 * (100vw - 320px) / 1600);
 }/*# sourceMappingURL=style.css.map */

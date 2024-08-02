@@ -255,6 +255,10 @@
               margin-top: 9px;
             }
           }
+
+          &.__not-foldabe *{
+            @include fontSizeCustom($default-font-size-min, $default-font-size-max);
+          }
         }
       }
     }
