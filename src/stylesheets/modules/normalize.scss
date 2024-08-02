@@ -1,4 +1,8 @@
-@import './variables';
+@import '../resources/variables/colors';
+@import '../resources/variables/layout_values';
+@import '../resources/mixins';
+
+
 
 *,
 *::after,
@@ -22,6 +26,28 @@
 
 body {
   z-index: -100;
+  -webkit-font-smoothing: antialiased;
+}
+
+p, ul, li {
+  line-height: 1.5em;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+footer {
+  background-color: black;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+
+
+  & > p {
+    color: $c-text;
+  }
+
 }
 
 button {
@@ -29,5 +55,4 @@ button {
   background-color: white;
   color: black;
   padding: 15px;
-  font-size: 2vw;
 }

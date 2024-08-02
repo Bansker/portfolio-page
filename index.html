@@ -4,39 +4,207 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
+	
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
 	
 	<link rel="stylesheet" href="./src/stylesheets/style.css">
 
-	<script defer src="./src/javascript/main.js"></script>
+	<script defer type="text/javascript" src="./src/javascript/module/m_parallax.js"></script>
+	<script defer type="module" src="./src/javascript/main.js"></script>
 
   <title>Yannick Jud</title>
 </head>
-<body>
-	<p class="js-out"></p>
 
+<body>
 	<div class="modal-ios-permission">
 		<div class="modal-ios-permission--content">
-			<p>Diese website verwendet daten des Gyrosensors, um den Parallax effekt zu erzeugen. Es werden keine Daten gespeichert.</p>
+			<p>Diese website benötigt ihre Erlaubnis, um Daten des Gyrosensors für den interaktiven Hintergrund zu verwenden.</p>
 			<button class="modal-permission-btn">Verstanden</button>
 		</div>
 	</div>
 
-	<div class="plx-wrapper">
+	<header class="header">
 
-		<div class="main-content">
-			<h1 class="main-content--name">Yannick Jud</h1>
-			<p class="main-content--motto">empowers technology</p>
+	</header>
+
+	<div class="plx-wrapper">
+		<div class="hero-content">
+			<h1 class="hero-content--name">Yannick Jud</h1>
+			<p class="hero-content--motto">empowers technology</p>
 	
-			<div class="main-content--btn-container">
-				<button class="btn-container--btn btn-container--btn__more">Mehr Erfahren</button>
-				<button class="btn-container--btn btn-container--btn__cv">Lebenslauf</button>
+			<div class="hero-content--btn-container">
+				<button class="btn-container--btn js-btn-more">Mehr Erfahren</button>
+				<button class="btn-container--btn js-btn-cv">Lebenslauf</button>
+			</div>
+		</div>
+	</div>
+
+
+	
+	<div class="main">
+		<div id="welcome" class="aboutme">
+			<!-- <h1 class="section-title">Willkommen</h1> -->
+			<div class="img-container">
+				<img src="./img/portrait2.jpg" alt="">
+			</div>
+			<div class="lead-text">
+				<p>Als gelernter Elektroniker mit praktischen Erfahrungen im sozialen Sektor vereine ich technisches
+					 Know-how mit zwischenmenschlichen Fähigkeiten.</p>
+
+				<p>Meine Leidenschaft gilt dem autodidaktischen Erlernen komplexer Themen der IT-Branche. Durch
+					 intensive Selbststudien und Nutzung verschiedener Online-Ressourcen sowie Sachbücher erweitere
+					 ich mein Wissen stets. Mein unermüdlicher Lerngeist wird mich ein Leben lang begleiten.</p>
 			</div>
 		</div>
 
-	</div>
+
+		<main class="main--cv-wrapper">
+			<h1 id="cv" class="section-title __text-purple">Lebenslauf</h1>
+			<h2 class="section-subtitle __text-purple">Berufserfahrung</h2>
+
+			<div class="accordion">
+
+				<div class="tab">
+					<input type="checkbox" id="checkbox-1">
+					<label for="checkbox-1" class="tab--label">
+						<div>
+							<p><strong>03.2022 - Heute</strong></p>
+							<p>Elektroniker - Inputech AG, Hüntwangen-Wil ZH</p>
+						</div>
+						<div>&#x276F</div> <!-- Arrow indicating open/closed state -->
+					</label>
+					<div class="tab--content">
+						<ul>
+							<li>Verantwortung für die Service und Reparaturabteilung</li>
+							<li>Strukturiertes Verwalten und Instandhalten der Dokumentation</li>
+							<li>Mitarbeit bei Entwicklung und Weiterentwicklung unserer Produkte</li>
+							<li>Dokumentation von Produktions- und Integrationsanleitungen</li>
+						</ul>
+					</div>
+				</div>
+
+
+				<div class="tab">
+					<input type="checkbox" id="checkbox-2">
+					<label for="checkbox-2" class="tab--label">
+						<div>
+							<p><strong>05.2021 - 02.2022</strong></p>
+							<p>Praktikum Betriebsmitarbeiter Durchgangszentrum - Friedeck, Buch SH</p>
+						</div>
+						<div>&#x276F</div>
+					</label>
+					<div class="tab--content">
+						<ul>
+							<li>Planen und Umsetzen von Renovationsarbeiten der Zimmer in
+								Zusammenarbeit mit Zivildienstleistenden und Klientinnen und
+								Klienten im Beschäftigungsprogramm</li>
+							<li>Reorganisation und Installation der Computersysteme in den
+								verschiedenen Büros</li>
+							<li>Aufgabenhilfe und Prüfungsvorbereitungen für unsere Schüler</li>
+							<li>Begleitung und Unterstützung bei verschiedenen Terminen unserer
+								Klientinnen und Klienten</li>
+						</ul>
+					</div>
+				</div>
+
+
+				<div class="tab">
+					<input type="checkbox" id="checkbox-3">
+					<label for="checkbox-3" class="tab--label">
+						<div>
+							<p><strong>08.2020 - 04.2021</strong></p>
+							<p>Neuorientierung</p>
+						</div>
+						<div>&#x276F</div>
+					</label>
+					<div class="tab--content">
+						<ul>
+							<li>content</li>
+						</ul>
+					</div>
+				</div>
+
+
+				<div class="tab">
+					<input type="checkbox" id="checkbox-4">
+					<label for="checkbox-4" class="tab--label">
+						<div>
+							<p><strong>08.2016 - 07.2020</strong></p>
+							<p>Ausbildung als Elektroniker EFZ - EPH Electronics AG, Diessenhofen</p>
+						</div>
+						<div>&#x276F</div>
+					</label>
+					<div class="tab--content">
+						<ul>
+							<li>Prototypen und Software entwickeln</li>
+							<li>Prüfeinrichtungen planen, realisieren und dokumentieren</li>
+							<li>Schaltungen und Geräte fertigen und in Betrieb nehmen</li>
+							<li>Testkonzepte erstellen und Tests durchführen</li>
+						</ul>
+					</div>
+				</div>
+
+				
+				<h2 class="section-subtitle __text-purple">Besondere Berufliche Erfahrungen</h2>
+
+				<div class="tab">
+					<input type="checkbox" id="checkbox-5">
+					<label for="checkbox-5" class="tab--label">
+						<div>
+							<p><strong>02.2021 - 04.2021</strong></p>
+							<p>Freiwilliges Engagement im Haus der Kulturen</p>
+						</div>
+						<div>&#x276F</div>
+					</label>
+					<div class="tab--content">
+						<ul>
+							<li>Unterstützung und Begleitung eines Flüchtlings bei alltäglichen Themen</li>
+							<li>Unterstützung bei den Hausaufgaben</li>
+							<li>Förderung der Deutschkenntnisse</li>
+						</ul>
+					</div>
+				</div>
+
+
+				<h2 class="section-subtitle __text-purple">Schulen, Aus- und Weiterbildungen</h2>
+
+				<div class="tab">	
+					<div class="tab--content" style="max-height: 100vh;">
+						<p><strong>Start ab 12.10.2024</strong></p>
+						<p>Weiterbildung zum <em>Dipl. Informatiker HF Applikationsentwicklung mit
+							Schwerpunkt Application-Security</em></p>
+						<p>Höhere Fachschule IFA</p>
+					</div>
+				</div>
+
+				<div class="tab">	
+					<div class="tab--content" style="max-height: 100vh;">
+						<p><strong>08.2016 - 07.2020</strong></p>
+						<p>Ausbildung als Elektroniker EFZ</p>
+						<p>EPH Electronics AG, Diessenhofen</p>
+					</div>
+				</div>
+
+				<div class="tab">	
+					<div class="tab--content" style="max-height: 100vh;">
+						<p><strong>2007 – 2016</strong></p>
+						<p>Primar- und Sekundarschule, Schaffhausen</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<p>©2024 Yannick Jud</p>
+	</footer>
 
 </body>
 </html>

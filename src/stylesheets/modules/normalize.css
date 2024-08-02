@@ -1,0 +1,46 @@
+/* 
+  TEXT SCALING
+  Dynamic size calculation formula:
+  calc(min-font + (max_font - min_font) * (100vw - min_screen) / (max_screen - min_screen))
+*/
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gabarito", sans-serif;
+  font-optical-sizing: auto;
+  color: #a9bfe3;
+  /*   outline: 1px solid red; */
+}
+
+body {
+  z-index: -100;
+  -webkit-font-smoothing: antialiased;
+}
+
+p, ul, li {
+  line-height: 1.5em;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+footer {
+  background-color: black;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+footer > p {
+  color: #a9bfe3;
+}
+
+button {
+  border: none;
+  background-color: white;
+  color: black;
+  padding: 15px;
+}/*# sourceMappingURL=normalize.css.map */
