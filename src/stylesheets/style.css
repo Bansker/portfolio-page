@@ -12,7 +12,6 @@
   font-family: "Gabarito", sans-serif;
   font-optical-sizing: auto;
   color: #a9bfe3;
-  /*   outline: 1px solid red; */
 }
 
 body {
@@ -250,7 +249,7 @@ h2.section-subtitle {
   overflow-y: scroll;
 }
 .tab input:checked + .tab--label div:last-of-type {
-  transform: rotate(270deg);
+  transform: rotate(180deg);
 }
 .tab label:hover {
   cursor: pointer;
@@ -259,6 +258,7 @@ h2.section-subtitle {
   display: flex;
   justify-content: space-between;
   align-content: center;
+  overflow: hidden;
 }
 .tab--label div {
   align-content: center;
@@ -268,7 +268,6 @@ h2.section-subtitle {
 }
 .tab--label div:last-of-type {
   margin-left: 20px;
-  transform: rotate(90deg);
   transition: 0.2s all;
 }
 

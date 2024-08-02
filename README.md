@@ -1,8 +1,7 @@
 # portfolio-page
 
 To-Do:
-* Neuorientierung ausführen
-* einleitungstext verfassen
 * soft skills hübsch darstellen
 * hobbies angeben
 * referenzen angeben
+* fix: weisse linie an seite bei breite weniger als 397px
