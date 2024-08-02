@@ -29,6 +29,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
 p, ul, li {
   line-height: 1.5em;
 }
@@ -57,4 +64,34 @@ button {
   background-color: white;
   color: black;
   padding: 15px;
+}
+
+.btn {
+  flex         : 1;
+  padding      : 30px 15px;
+  max-width    : 400px;
+  min-width    : 300px;
+  border-radius: .8rem;
+
+  color          : $c-text;
+  border         : 1px solid rgb(169, 191, 227, 0.3);
+  background     : rgb(169, 191, 227, 0.19);
+
+  $blur          : 5px;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  
+  transition-duration: .2s;
+  transition-property: all;
+  
+  @include fontSizeCustom($default-font-size-min, $default-font-size-max);
+}
+
+.btn:hover {
+  cursor    : pointer;
+
+  color     : $c-bg-hero;
+  border    : 1px solid rgb(169, 191, 227, 1);
+  transform : scale(1.03);
+  background: rgb(169, 191, 227, 1);
 }

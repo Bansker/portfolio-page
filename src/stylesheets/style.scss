@@ -157,6 +157,14 @@
         margin-top: 1rem;
       }
     }
+
+    @at-root .contact-container {
+      margin-top: 40px;
+      & .btn__say-hello {
+        padding: 15px; 
+        margin-top: 20px;
+      }
+    }
   }
 
   @at-root .main--cv-wrapper {
