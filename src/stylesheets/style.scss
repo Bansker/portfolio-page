@@ -159,10 +159,9 @@
     }
 
     @at-root .contact-container {
-      margin-top: 40px;
       & .btn__say-hello {
         padding: 15px; 
-        margin-top: 20px;
+        margin-top: 30px;
       }
     }
   }
@@ -271,4 +270,31 @@
       }
     }
   }
+}
+
+
+.skills-container {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    padding: 50px 0;
+    margin: 30px 0;
+    width: 100%;
+    border-radius: 1rem;
+  
+    max-width: 100%;
+    gap: 20px;
+
+    background: linear-gradient(160deg, rgba(62,77,112,1) 0%, rgba(12,19,29,0) 50%);
+  
+    & .svg-container {
+      height: 100px;
+  
+      & img{
+        height: inherit;
+        width: 100%;
+      }
+    }
 }

@@ -53,9 +53,12 @@ button {
 
 .btn {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 30px 15px;
   max-width: 400px;
-  min-width: 300px;
+  min-width: 150px;
   border-radius: 0.8rem;
   color: #a9bfe3;
   border: 1px solid rgba(169, 191, 227, 0.3);
@@ -240,12 +243,9 @@ button {
   margin-top: 1rem;
 }
 
-.contact-container {
-  margin-top: 40px;
-}
 .contact-container .btn__say-hello {
   padding: 15px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .main--cv-wrapper {
@@ -331,4 +331,25 @@ h2.section-subtitle {
 }
 .tab--content.__not-foldabe * {
   font-size: calc(16px + 6 * (100vw - 320px) / 1600);
+}
+
+.skills-container {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px 0;
+  margin: 30px 0;
+  width: 100%;
+  border-radius: 1rem;
+  max-width: 100%;
+  gap: 20px;
+  background: linear-gradient(160deg, rgb(62, 77, 112) 0%, rgba(12, 19, 29, 0) 50%);
+}
+.skills-container .svg-container {
+  height: 100px;
+}
+.skills-container .svg-container img {
+  height: inherit;
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */
