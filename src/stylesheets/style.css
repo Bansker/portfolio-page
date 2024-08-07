@@ -337,8 +337,9 @@ h2.section-subtitle {
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  padding: 50px 0;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 30px 0;
   margin: 30px 0;
   width: 100%;
   border-radius: 1rem;
@@ -347,9 +348,11 @@ h2.section-subtitle {
   background: linear-gradient(160deg, rgb(62, 77, 112) 0%, rgba(12, 19, 29, 0) 50%);
 }
 .skills-container .svg-container {
-  height: 100px;
+  width: 80px;
+  overflow: hidden;
 }
 .skills-container .svg-container img {
-  height: inherit;
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=style.css.map */
