@@ -7,7 +7,7 @@
 
 **Code:**
 - [ ] fix: 
-  - [x] weisse linie an seite bei breite weniger als 397px
+  - [x] weisse linie an seite bei breite weniger als 397px (problem waren div overflows von den akkordion pfeil containern)
   - [ ] Safari: unscharfe SVGs in safari (Safari hat ein problem mit der Skalierung von SVGs)
   - [ ] Safari: flex wrap bei skills SVGs (Fehler unbekannt)
   - [ ] Safari: Pfeile bei akkordions rotieren falsch (Fehler unbekannt)
